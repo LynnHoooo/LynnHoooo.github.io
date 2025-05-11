@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火箭伺服结构系统</title>
+    <!-- 引入MathJax库 -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            position: relative;
+        }
+        .keyword {
+            color: #66d9ef;
+        }
+        .string {
+            color: #e6db74;
+        }
+        .comment {
+            color: #75715e;
+        }
+        .number {
+            color: #ae81ff;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>火箭伺服结构系统</h1>
+        <p>精确控制火箭姿态与轨迹的关键技术</p>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>1. 什么是伺服结构</h2>
+            <p>火箭伺服结构是火箭飞行控制系统中的关键组成部分，主要用于：</p>
+            <ul>
+                <li><strong>精确控制</strong>火箭的姿态和飞行轨迹</li>
+                <li>确保火箭按照预定的轨道<strong>准确飞行</strong></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>2. 伺服结构的作用</h2>
+            <h3>2.1 姿态稳定</h3>
+            <p>在火箭飞行过程中，受到外界干扰(如大气扰动、重力梯度等)的影响，火箭的姿态可能会发生偏离。伺服结构能够：</p>
+            <ul>
+                <li>及时感知姿态变化</li>
+                <li>通过控制执行机构产生相应的控制力矩</li>
+                <li>使火箭恢复到稳定的飞行姿态</li>
+                <li>保证火箭飞行的稳定性</li>
+            </ul>
+
+            <h3>2.2 轨迹控制</h3>
+            <p>为了使火箭按照预定的轨道飞行，需要：</p>
+            <ul>
+                <li>精确控制火箭的飞行方向和速度</li>
+                <li>调整火箭的推力方向和姿态</li>
+                <li>实现对火箭轨迹的精确控制</li>
+                <li>确保火箭准确地到达目标位置</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. 舵机控制</h2>
+        
+        <h3>3.1 舵机运动角度与坐标关系</h3>
+        <div class="formula">
+            $\begin{align*}
+            &\theta_1=90-\frac{45}{\max(|x|,|y|)}\times\min(|x|,|y|)\\
+            &\theta_2=180-\theta_1
+            \end{align*}$
+        </div>
+
+        <h3>3.2 舵机与占空比的关系</h3>
+        <p><strong>标准参数：</strong></p>
+        <ul>
+            <li>信号周期：以下是结合用户提供的两张图片内容修正后的完整HTML文件，包含正确的代码展示和公式渲染：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火箭伺服结构系统</title>
+    <!-- 引入MathJax库 -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            position: relative;
+        }
+        .keyword {
+            color: #66d9ef;
+        }
+        .string {
+            color: #e6db74;
+        }
+        .comment {
+            color: #75715e;
+        }
+        .number {
+            color: #ae81ff;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>火箭伺服结构系统</h1>
+        <p>精确控制火箭姿态与轨迹的关键技术</p>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>1. 什么是伺服结构</h2>
+            <p>火箭伺服结构是火箭飞行控制系统中的关键组成部分，主要用于：</p>
+            <ul>
+                <li><strong>精确控制</strong>火箭的姿态和飞行轨迹</li>
+                <li>确保火箭按照预定的轨道<strong>准确飞行</strong></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>2. 伺服结构的作用</h2>
+            <h3>2.1 姿态稳定</h3>
+            <p>在火箭飞行过程中，受到外界干扰(如大气扰动、重力梯度等)的影响，火箭的姿态可能会发生偏离。伺服结构能够：</p>
+            <ul>
+                <li>及时感知姿态变化</li>
+                <li>通过控制执行机构产生相应的控制力矩</li>
+                <li>使火箭恢复到稳定的飞行姿态</li>
+                <li>保证火箭飞行的稳定性</li>
+            </ul>
+
+            <h3>2.2 轨迹控制</h3>
+            <p>为了使火箭按照预定的轨道飞行，需要：</p>
+            <ul>
+                <li>精确控制火箭的飞行方向和速度</li>
+                <li>调整火箭的推力方向和姿态</li>
+                <li>实现对火箭轨迹的精确控制</li>
+                <li>确保火箭准确地到达目标位置</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. 舵机控制</h2>
+        
+        <h3>3.1 舵机运动角度与坐标关系</h3>
+        <div class="formula">
+            $\begin{align*}
+            &\theta_1=90-\frac{45}{\max(|x|,|y|)}\times\min(|x|,|y|)\\
+            &\theta_2=180-\theta_1
+            \end{align*}$
+        </div>
+
+        <h3>3.2 舵机与占空比的关系</h3>
+        <p><strong>标准参数：</strong></p>
+        <ul>
+            <li>信号周期：<code>20ms</code> (频率<code>50Hz</code>)</li>
+            <li>脉冲宽度范围：<code>0.5ms-2.5ms</code></li>
+            <li>对应角度范围：<code>0°-180°</code></li>
+        </ul>
+
+        <div class="formula">
+            $PW(\theta)=PW_{\text{min}}\times\frac{\theta}{\theta_{\text{max}}}\times(PW_{\text{max}}-PW_{\text{min}})$
+        </div>
+
+        <p><strong>参数说明：</strong></p>
+        <ul>
+            <li><code>PW_min = 500μs (0°)</code></li>
+            <li><code>PW_max = 2500μs (180°)</code></li>
+            <li><code>θ</code> 是目标角度 (<code>0°≤θ≤180°</code>)</li>
+        </ul>
+
+        <h3>3.3 舵机代码实现</h3>
+        <div class="code-block">
+            <pre>//优化的串口回调函数
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+{
+    if(huart->Instance == USART2)
+    {
+        //DMA缓冲区保护
+        const uint16_t safe_size = (Size < sizeof(rx_data))? Size : sizeof(rx_data)-1;
+        rx_data[safe_size] = '\0';
+        
+        //清除控制字符
+        char* newline = strchr((char*)rx_data, '\n');
+        if(newline) *newline = '\0';
+        char* cr = strchr((char*)rx_data, '\r');
+        if(cr) *cr = '\0';
+        
+        //执行控制(会在Control_Servos中发送响应)
+        Control_Servos((char*)rx_data);
+        
+        //双缓冲接收重启
+        static uint8_t active_buf = 0;
+        uint8_t* target_buf = (active_buf == 0) ? rx_data_alt : rx_data;
+        
+        if(HAL_UARTEx_ReceiveToIdle_DMA(&huart2, target_buf, sizeof(rx_data)) == HAL_OK)
+        {
+            active_buf ^= 1;
+        }
+        __HAL_DMA_DISABLE_IT(huart2.hdmarx, DMA_IT_HT);
+    }
+}</pre>
+        </div>
+
+        <h3>3.4 舵机控制函数</h3>
+        <div class="code-block">
+            <pre>//舵机控制函数
+void Control_Servos(const char* command) 
+{
+    char* comma_pos = strchr(command, ',');
+    if (!comma_pos) return;
+    
+    int angle1 = atoi(command);
+    int angle2 = atoi(comma_pos + 1);
+    
+    //角度限幅
+    angle1 = (angle1 < 0) ? 0 : (angle1 > 180) ? 180 : angle1;
+    angle2 = (angle2 < 0) ? 0 : (angle2 > 180) ? 180 : angle2;
+    
+    //计算PWM脉宽
+    uint16_t pulse1 = 500 + angle1 * 2000 / 180;
+    uint16_t pulse2 = 500 + angle2 * 2000 / 180;
+    
+    //设置定时器比较值
+    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, pulse1);
+    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, pulse2);
+    
+    //准备响应数据
+    char response[64];
+    snprintf(response, sizeof(response), "ANG:%d,%d PWM:%d,%d\n", 
+             angle1, angle2, pulse1, pulse2);
+    
+    //发送给上位机
+    HAL_UART_Transmit_DMA(&huart2, (uint8_t*)response, strlen(response));
+}</pre>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>4. 上位机制作</h2>
+            <p>按照控制要求制作上位机，重点解决数据堵塞问题。</p>
+            <div class="image-container">
+                <img src="upper_computer.png" alt="上位机界面">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. 系统优势</h2>
+            <ul>
+                <li>高精度控制算法</li>
+                <li>实时数据处理能力</li>
+                <li>稳定的飞行姿态保持</li>
+                <li>精确的轨迹跟踪</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 火箭伺服结构系统 | 技术支持团队</p>
+    </footer>
+</body>
+</html>
