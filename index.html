@@ -19,8 +19,8 @@
             <ul class="nav-menu">
                 <li><a href="#home" data-lang-zh="首页" data-lang-en="Home">首页</a></li>
                 <li><a href="#about" data-lang-zh="关于我们" data-lang-en="About">关于我们</a></li>
-                <li><a href="#technology" data-lang-zh="技术" data-lang-en="Technology">技术</a></li>
-                <li><a href="#projects" data-lang-zh="项目" data-lang-en="Projects">项目</a></li>
+                <li><a href="#technology" data-lang-zh="技术与项目" data-lang-en="Technology & Projects">技术与项目</a></li>
+                <li><a href="news.html" data-lang-zh="新闻" data-lang-en="News">新闻</a></li>
                 <li><a href="#partners" data-lang-zh="合作伙伴" data-lang-en="Partners">合作伙伴</a></li>
                 <li><a href="#team" data-lang-zh="团队" data-lang-en="Team">团队</a></li>
                 <li><a href="#contact" data-lang-zh="联系我们" data-lang-en="Contact">联系我们</a></li>
@@ -63,6 +63,32 @@
         </div>
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- 视频展示区域 -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-content">
+                <h2 class="section-title" data-lang-zh="项目展示视频" data-lang-en="Project Showcase Video">项目展示视频</h2>
+                <p class="video-subtitle" data-lang-zh="了解我们的最新研发进展和技术突破" data-lang-en="Learn about our latest R&D progress and technological breakthroughs">了解我们的最新研发进展和技术突破</p>
+                <div class="video-container">
+                    <video id="project-video" controls poster="video-poster.jpg">
+                        <source src="project-video.mp4" type="video/mp4">
+                        <source src="project-video.webm" type="video/webm">
+                        您的浏览器不支持视频播放。
+                    </video>
+                    <div class="video-overlay">
+                        <button class="play-btn" id="play-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3 data-lang-zh="100%可复用火箭技术展示" data-lang-en="100% Reusable Rocket Technology Showcase">100%可复用火箭技术展示</h3>
+                    <p data-lang-zh="观看我们的火箭发动机测试、Aerospike发动机设计、以及可复用火箭系统的完整展示。了解我们如何通过创新技术推动航天工业的发展。" data-lang-en="Watch our rocket engine testing, Aerospike engine design, and complete showcase of reusable rocket systems. Learn how we promote aerospace industry development through innovative technology.">观看我们的火箭发动机测试、Aerospike发动机设计、以及可复用火箭系统的完整展示。了解我们如何通过创新技术推动航天工业的发展。</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -111,7 +137,7 @@
         </div>
     </section>
 
-    <!-- 技术展示 -->
+    <!-- 技术与项目展示 -->
     <section id="technology" class="technology">
         <div class="container">
             <h2 class="section-title">核心技术</h2>
@@ -306,6 +332,76 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 5000N级地面试车系统 -->
+                <div class="project-item" id="project-5">
+                    <div class="project-image-large">
+                        <div class="image-loading">
+                            <div class="loading-spinner"></div>
+                            <p>加载中...</p>
+                        </div>
+                        <object data="试车台.png" type="image/jpeg" class="project-embedded-image" onload="hideLoading(this)">
+                            <img src="试车台.png" alt="5000N级地面试车系统" onload="hideLoading(this)" onerror="handleImageError(this)">
+                        </object>
+                    </div>
+                    <div class="project-details">
+                        <h3>5000N级地面试车系统</h3>
+                        <p class="project-description">本试车台主要用于对小型液体或固体火箭发动机进行卧式推力测试，测试过程涉及发动机产生的轴向推力、剪力等机械载荷。设计目标是保证试车台在最大推力5kN作用下，结构稳定、测量准确、安全可靠，适用于实验室或野外测试环境。在设计时，我们采用模块化设计，便于运输和组装，主要分为承力框架、发动机固定与支撑系统、连接系统、推力传递系统以及压载与稳定系统。</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">最大推力</span>
+                                <span class="spec-value">5kN</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">测试类型</span>
+                                <span class="spec-value">卧式推力测试</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">设计特点</span>
+                                <span class="spec-value">模块化设计</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">应用环境</span>
+                                <span class="spec-value">实验室/野外</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 同轴涡旋式喷注器 -->
+                <div class="project-item" id="project-6">
+                    <div class="project-image-large">
+                        <div class="image-loading">
+                            <div class="loading-spinner"></div>
+                            <p>加载中...</p>
+                        </div>
+                        <object data="喷注器.png" type="image/png" class="project-embedded-image" onload="hideLoading(this)">
+                            <img src="喷注器.png" alt="同轴涡旋式喷注器" onload="hideLoading(this)" onerror="handleImageError(this)">
+                        </object>
+                    </div>
+                    <div class="project-details">
+                        <h3>同轴涡旋式喷注器</h3>
+                        <p class="project-description">同轴涡旋式喷注器可以使两种燃料在进入燃烧室前先进入预设的腔室，通过旋转和增压，使得液体从喷口出来时处于高速的状态并发生碰撞，混合成为细小的液滴进入燃烧状态。</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">入口压力</span>
+                                <span class="spec-value">2.5MPa</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">材质</span>
+                                <span class="spec-value">铜合金</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">制造工艺</span>
+                                <span class="spec-value">金属粉末3D打印</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">混合角度</span>
+                                <span class="spec-value">可调整</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -322,10 +418,6 @@
                     <h3>郑立勋</h3>
                     <p class="team-title">CMO</p>
                     <p class="team-description">产学研落地关键推手，华南博士圈联络站，华南理工大学本硕博，ANU联合培养博士，清华大学经济管理学院博士后</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
                 </div>
                 <div class="team-card team-card-ceo">
                     <div class="team-avatar">
@@ -334,10 +426,6 @@
                     <h3>梁智斌</h3>
                     <p class="team-title">CEO & CTO</p>
                     <p class="team-description">航天领域连续创业者，专利证书印刷机。华南理工大学本科，火箭相关发明专利5项，部分成果处于领先地位</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
                 </div>
                 <div class="team-card team-card-coo">
                     <div class="team-avatar">
@@ -346,10 +434,6 @@
                     <h3>李羿葶</h3>
                     <p class="team-title">COO</p>
                     <p class="team-description">人形任务管理器，风险处理官，华东师范大学本科，华南理工大学硕士，超十年的团队管理经验</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -376,24 +460,21 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>地址</h4>
                             <p>广州市天河区五山路华南理工大学35号楼4至6层之4-11</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
                         <div>
                             <h4>微信公众号</h4>
                             <p>冕巢航天</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
                         <div>
                             <h4>邮箱</h4>
-                            <p>contact@mianchao.com（待补充）</p>
+                            <p>contact@coronest.com</p>
                         </div>
                     </div>
                 </div>
@@ -430,21 +511,11 @@
                 <div class="footer-section">
                     <h4>快速链接</h4>
                     <ul>
-                        <li><a href="#home">首页</a></li>
-                        <li><a href="#about">关于我们</a></li>
-                        <li><a href="#technology">技术</a></li>
-                        <li><a href="#projects">项目</a></li>
-                        <li><a href="#partners">合作伙伴</a></li>
+                        <li><a href="#home" data-lang-zh="首页" data-lang-en="Home">首页</a></li>
+                        <li><a href="#about" data-lang-zh="关于我们" data-lang-en="About">关于我们</a></li>
+                        <li><a href="#technology" data-lang-zh="技术与项目" data-lang-en="Technology & Projects">技术与项目</a></li>
+                        <li><a href="#partners" data-lang-zh="合作伙伴" data-lang-en="Partners">合作伙伴</a></li>
                     </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>关注我们</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-weibo"></i></a>
-                        <a href="#"><i class="fab fa-wechat"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
