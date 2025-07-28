@@ -17,14 +17,18 @@
                 <span>冕巢航天</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#about">关于我们</a></li>
-                <li><a href="#technology">技术</a></li>
-                <li><a href="#projects">项目</a></li>
-                <li><a href="#partners">合作伙伴</a></li>
-                <li><a href="#team">团队</a></li>
-                <li><a href="#contact">联系我们</a></li>
+                <li><a href="#home" data-lang-zh="首页" data-lang-en="Home">首页</a></li>
+                <li><a href="#about" data-lang-zh="关于我们" data-lang-en="About">关于我们</a></li>
+                <li><a href="#technology" data-lang-zh="技术" data-lang-en="Technology">技术</a></li>
+                <li><a href="#projects" data-lang-zh="项目" data-lang-en="Projects">项目</a></li>
+                <li><a href="#partners" data-lang-zh="合作伙伴" data-lang-en="Partners">合作伙伴</a></li>
+                <li><a href="#team" data-lang-zh="团队" data-lang-en="Team">团队</a></li>
+                <li><a href="#contact" data-lang-zh="联系我们" data-lang-en="Contact">联系我们</a></li>
             </ul>
+            <div class="language-switch">
+                <button class="lang-btn active" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -166,8 +170,12 @@
                 <!-- 可复用火箭末级 -->
                 <div class="project-item" id="project-1">
                     <div class="project-image-large">
-                        <object data="火箭.jpg" type="image/png" class="project-embedded-image">
-                            <img src="火箭.jpg" alt="可复用火箭末级" fallback>
+                        <div class="image-loading">
+                            <div class="loading-spinner"></div>
+                            <p>加载中...</p>
+                        </div>
+                        <object data="火箭.png" type="image/png" class="project-embedded-image" onload="hideLoading(this)">
+                            <img src="火箭.png" alt="可复用火箭末级" onload="hideLoading(this)" onerror="handleImageError(this)">
                         </object>
                     </div>
                     <div class="project-details">
@@ -197,8 +205,12 @@
                 <!-- 2000N液体燃料发动机 -->
                 <div class="project-item" id="project-2">
                     <div class="project-image-large">
-                        <object data="2000N液体燃料发动机.png" type="image/png" class="project-embedded-image">
-                            <img src="2000N液体燃料发动机.png" alt="2000N液体燃料发动机" fallback>
+                        <div class="image-loading">
+                            <div class="loading-spinner"></div>
+                            <p>加载中...</p>
+                        </div>
+                        <object data="2000N液体燃料发动机.png" type="image/png" class="project-embedded-image" onload="hideLoading(this)">
+                            <img src="2000N液体燃料发动机.png" alt="2000N液体燃料发动机" onload="hideLoading(this)" onerror="handleImageError(this)">
                         </object>
                     </div>
                     <div class="project-details">
@@ -228,8 +240,12 @@
                 <!-- Aerospike发动机 -->
                 <div class="project-item" id="project-3">
                     <div class="project-image-large">
-                        <object data="aerospike发动机.png" type="image/png" class="project-embedded-image">
-                            <img src="aerospike发动机.png" alt="Aerospike发动机" fallback>
+                        <div class="image-loading">
+                            <div class="loading-spinner"></div>
+                            <p>加载中...</p>
+                        </div>
+                        <object data="aerospike发动机.png" type="image/png" class="project-embedded-image" onload="hideLoading(this)">
+                            <img src="aerospike发动机.png" alt="Aerospike发动机" onload="hideLoading(this)" onerror="handleImageError(this)">
                         </object>
                     </div>
                     <div class="project-details">
@@ -259,8 +275,12 @@
                 <!-- 可复用火箭整箭 -->
                 <div class="project-item" id="project-4">
                     <div class="project-image-large">
-                        <object data="可复用火箭整件.png" type="image/png" class="project-embedded-image">
-                            <img src="可复用火箭整件.png" alt="可复用火箭整箭" fallback>
+                        <div class="image-loading">
+                            <div class="loading-spinner"></div>
+                            <p>加载中...</p>
+                        </div>
+                        <object data="可复用火箭整件.png" type="image/png" class="project-embedded-image" onload="hideLoading(this)">
+                            <img src="可复用火箭整件.png" alt="可复用火箭整箭" onload="hideLoading(this)" onerror="handleImageError(this)">
                         </object>
                     </div>
                     <div class="project-details">
@@ -313,7 +333,7 @@
                     </div>
                     <h3>梁智斌</h3>
                     <p class="team-title">CEO & CTO</p>
-                    <p class="team-description">航天领域连续创业者，专利证书印刷机华南理工大学本科，火箭相关发明专利5项，部分成果处于领先地位</p>
+                    <p class="team-description">航天领域连续创业者，专利证书印刷机。华南理工大学本科，火箭相关发明专利5项，部分成果处于领先地位</p>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
