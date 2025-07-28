@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻动态 - 冕巢航天</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logo.png" alt="冕巢航天" class="logo-image">
+                <span>冕巢航天</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-lang-zh="首页" data-lang-en="Home">首页</a></li>
+                <li><a href="index.html#about" data-lang-zh="关于我们" data-lang-en="About">关于我们</a></li>
+                <li><a href="index.html#technology" data-lang-zh="技术与项目" data-lang-en="Technology & Projects">技术与项目</a></li>
+                <li><a href="news.html" data-lang-zh="新闻" data-lang-en="News">新闻</a></li>
+                <li><a href="index.html#partners" data-lang-zh="合作伙伴" data-lang-en="Partners">合作伙伴</a></li>
+                <li><a href="index.html#team" data-lang-zh="团队" data-lang-en="Team">团队</a></li>
+                <li><a href="index.html#contact" data-lang-zh="联系我们" data-lang-en="Contact">联系我们</a></li>
+            </ul>
+            <div class="language-switch">
+                <button class="lang-btn active" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 新闻页面头部 -->
+    <section class="news-hero">
+        <div class="container">
+            <h1 class="section-title">新闻动态</h1>
+            <p class="news-subtitle">关注我们的最新研发进展和技术突破</p>
+        </div>
+    </section>
+
+    <!-- 新闻列表 -->
+    <section class="news-section">
+        <div class="container">
+            <div class="news-grid">
+                <!-- 新闻项目1 -->
+                <article class="news-item">
+                    <div class="news-image">
+                        <img src="火箭.png" alt="发动机测试成功">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">2025-01-15</span>
+                            <span class="news-category">技术突破</span>
+                        </div>
+                        <h3 class="news-title">2000N液体燃料发动机首次点火测试成功</h3>
+                        <p class="news-excerpt">我们的2000N液体燃料发动机在实验室环境下成功完成首次点火测试，推力输出稳定，燃烧效率达到预期目标。这标志着我们在自研发动机技术方面取得了重要突破...</p>
+                        <a href="news-detail.html?id=1" class="news-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- 新闻项目2 -->
+                <article class="news-item">
+                    <div class="news-image">
+                        <img src="aerospike发动机.png" alt="Aerospike发动机">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">2025-01-10</span>
+                            <span class="news-category">研发进展</span>
+                        </div>
+                        <h3 class="news-title">Aerospike发动机设计完成，进入制造阶段</h3>
+                        <p class="news-excerpt">经过数月的精心设计，我们的Aerospike发动机设计方案已经完成并通过评审。该发动机采用创新的自适应环境压强技术，将在不同大气条件下保持最佳推进效率...</p>
+                        <a href="news-detail.html?id=2" class="news-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- 新闻项目3 -->
+                <article class="news-item">
+                    <div class="news-image">
+                        <img src="试车台.png" alt="试车台建设">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">2025-01-05</span>
+                            <span class="news-category">基础设施</span>
+                        </div>
+                        <h3 class="news-title">5000N级地面试车台建设完成</h3>
+                        <p class="news-excerpt">我们的5000N级地面试车台建设已经完成，该试车台采用模块化设计，具备完善的测试能力。将为发动机测试提供安全可靠的测试环境...</p>
+                        <a href="news-detail.html?id=3" class="news-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- 新闻项目4 -->
+                <article class="news-item">
+                    <div class="news-image">
+                        <img src="喷注器.png" alt="喷注器技术">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">2024-12-28</span>
+                            <span class="news-category">技术创新</span>
+                        </div>
+                        <h3 class="news-title">同轴涡旋式喷注器技术获得突破</h3>
+                        <p class="news-excerpt">我们自主研发的同轴涡旋式喷注器技术取得重要突破，通过金属粉末3D打印工艺成功制造出高精度喷注器。该技术将显著提升发动机的燃烧效率...</p>
+                        <a href="news-detail.html?id=4" class="news-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- 新闻项目5 -->
+                <article class="news-item">
+                    <div class="news-image">
+                        <img src="可复用火箭整件.png" alt="可复用火箭">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">2024-12-20</span>
+                            <span class="news-category">项目进展</span>
+                        </div>
+                        <h3 class="news-title">可复用火箭整箭系统设计启动</h3>
+                        <p class="news-excerpt">我们正式启动了100%可复用火箭整箭系统的设计工作。该项目将整合所有自主研发技术，打造完整的可复用火箭系统，预计2026年完成首飞...</p>
+                        <a href="news-detail.html?id=5" class="news-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- 新闻项目6 -->
+                <article class="news-item">
+                    <div class="news-image">
+                        <img src="liangzhibin.png" alt="团队建设">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">2024-12-15</span>
+                            <span class="news-category">团队动态</span>
+                        </div>
+                        <h3 class="news-title">核心团队完成组建，研发能力全面提升</h3>
+                        <p class="news-excerpt">我们的核心团队已经完成组建，包括CEO&CTO梁智斌、CMO郑立勋、COO李羿葶等资深专家。团队具备丰富的航天领域经验，将为项目发展提供强大支撑...</p>
+                        <a href="news-detail.html?id=6" class="news-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">下一页 <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="冕巢航天" class="logo-image">
+                        <span>冕巢航天</span>
+                    </div>
+                    <p>引领航天技术革命，让太空探索更加经济可行</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="index.html#about">关于我们</a></li>
+                        <li><a href="index.html#technology">技术与项目</a></li>
+                        <li><a href="index.html#partners">合作伙伴</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 冕巢航天. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

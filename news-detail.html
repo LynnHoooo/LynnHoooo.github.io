@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻详情 - 冕巢航天</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logo.png" alt="冕巢航天" class="logo-image">
+                <span>冕巢航天</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-lang-zh="首页" data-lang-en="Home">首页</a></li>
+                <li><a href="index.html#about" data-lang-zh="关于我们" data-lang-en="About">关于我们</a></li>
+                <li><a href="index.html#technology" data-lang-zh="技术与项目" data-lang-en="Technology & Projects">技术与项目</a></li>
+                <li><a href="news.html" data-lang-zh="新闻" data-lang-en="News">新闻</a></li>
+                <li><a href="index.html#partners" data-lang-zh="合作伙伴" data-lang-en="Partners">合作伙伴</a></li>
+                <li><a href="index.html#team" data-lang-zh="团队" data-lang-en="Team">团队</a></li>
+                <li><a href="index.html#contact" data-lang-zh="联系我们" data-lang-en="Contact">联系我们</a></li>
+            </ul>
+            <div class="language-switch">
+                <button class="lang-btn active" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 新闻详情内容 -->
+    <section class="news-detail-section">
+        <div class="container">
+            <div class="news-detail-content">
+                <!-- 面包屑导航 -->
+                <nav class="breadcrumb">
+                    <a href="index.html" data-lang-zh="首页" data-lang-en="Home">首页</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="news.html" data-lang-zh="新闻" data-lang-en="News">新闻</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span data-lang-zh="新闻详情" data-lang-en="News Detail">新闻详情</span>
+                </nav>
+
+                <!-- 新闻头部 -->
+                <header class="news-detail-header">
+                    <div class="news-meta">
+                        <span class="news-date" id="news-date">2025-01-15</span>
+                        <span class="news-category" id="news-category">技术突破</span>
+                    </div>
+                    <h1 class="news-detail-title" id="news-title">2000N液体燃料发动机首次点火测试成功</h1>
+                    <p class="news-detail-subtitle" id="news-subtitle">我们的2000N液体燃料发动机在实验室环境下成功完成首次点火测试，这标志着我们在自研发动机技术方面取得了重要突破。</p>
+                </header>
+
+                <!-- 新闻图片 -->
+                <div class="news-detail-image">
+                    <img src="火箭.png" alt="发动机测试成功" id="news-image">
+                </div>
+
+                <!-- 新闻正文 -->
+                <article class="news-detail-body" id="news-body">
+                    <!-- 内容将通过JavaScript动态加载 -->
+                </article>
+
+                <!-- 相关新闻 -->
+                <section class="related-news">
+                    <h3>相关新闻</h3>
+                    <div class="related-news-grid" id="related-news">
+                        <!-- 相关新闻将通过JavaScript动态加载 -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="冕巢航天" class="logo-image">
+                        <span>冕巢航天</span>
+                    </div>
+                    <p>引领航天技术革命，让太空探索更加经济可行</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="index.html#about">关于我们</a></li>
+                        <li><a href="index.html#technology">技术与项目</a></li>
+                        <li><a href="index.html#partners">合作伙伴</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 冕巢航天. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 新闻数据
+        const newsData = {
+            1: {
+                zh: {
+                    title: '2000N液体燃料发动机首次点火测试成功',
+                    subtitle: '我们的2000N液体燃料发动机在实验室环境下成功完成首次点火测试，这标志着我们在自研发动机技术方面取得了重要突破。',
+                    category: '技术突破',
+                    date: '2025-01-15',
+                    image: '火箭.png',
+                    content: `
+                        <p>经过数月的精心设计和准备，我们的2000N液体燃料发动机在实验室环境下成功完成首次点火测试。测试过程中，发动机推力输出稳定，燃烧效率达到预期目标，各项技术指标均符合设计要求。</p>
+                        
+                        <h2>测试详情</h2>
+                        <p>本次测试在严格控制的环境条件下进行，测试时间持续30秒，发动机推力稳定在2000N左右，燃烧室压力保持在设计范围内。测试过程中，发动机运行平稳，无异常振动和噪音。</p>
+                        
+                        <h2>技术突破</h2>
+                        <p>此次成功测试标志着我们在以下技术领域取得了重要突破：</p>
+                        <ul>
+                            <li>自研发动机设计技术</li>
+                            <li>燃料喷射和混合技术</li>
+                            <li>燃烧室热管理技术</li>
+                            <li>发动机控制系统</li>
+                        </ul>
+                        
+                        <h2>下一步计划</h2>
+                        <p>基于此次测试的成功，我们将继续推进发动机的优化工作，包括：</p>
+                        <ul>
+                            <li>提高发动机效率</li>
+                            <li>延长测试时间</li>
+                            <li>进行多次点火测试</li>
+                            <li>集成到火箭系统中</li>
+                        </ul>
+                        
+                        <p>这次测试的成功为我们后续的火箭发射项目奠定了坚实的技术基础，我们将继续努力，为中国的航天事业贡献力量。</p>
+                    `
+                },
+                en: {
+                    title: '2000N Liquid Fuel Engine First Ignition Test Successful',
+                    subtitle: 'Our 2000N liquid fuel engine successfully completed its first ignition test in a laboratory environment, marking an important breakthrough in our self-developed engine technology.',
+                    category: 'Technology Breakthrough',
+                    date: '2025-01-15',
+                    image: '火箭.png',
+                    content: `
+                        <p>After months of careful design and preparation, our 2000N liquid fuel engine successfully completed its first ignition test in a laboratory environment. During the test, the engine's thrust output was stable, combustion efficiency met expected targets, and all technical indicators met design requirements.</p>
+                        
+                        <h2>Test Details</h2>
+                        <p>This test was conducted under strictly controlled environmental conditions, with a test duration of 30 seconds. The engine thrust remained stable at around 2000N, and the combustion chamber pressure stayed within the design range. During the test, the engine ran smoothly with no abnormal vibrations or noise.</p>
+                        
+                        <h2>Technology Breakthrough</h2>
+                        <p>This successful test marks important breakthroughs in the following technical areas:</p>
+                        <ul>
+                            <li>Self-developed engine design technology</li>
+                            <li>Fuel injection and mixing technology</li>
+                            <li>Combustion chamber thermal management technology</li>
+                            <li>Engine control system</li>
+                        </ul>
+                        
+                        <h2>Next Steps</h2>
+                        <p>Based on the success of this test, we will continue to advance engine optimization work, including:</p>
+                        <ul>
+                            <li>Improving engine efficiency</li>
+                            <li>Extending test duration</li>
+                            <li>Conducting multiple ignition tests</li>
+                            <li>Integration into rocket systems</li>
+                        </ul>
+                        
+                        <p>The success of this test has laid a solid technical foundation for our subsequent rocket launch projects. We will continue to work hard to contribute to China's aerospace industry.</p>
+                    `
+                }
+            },
+            2: {
+                zh: {
+                    title: 'Aerospike发动机设计完成，进入制造阶段',
+                    subtitle: '经过数月的精心设计，我们的Aerospike发动机设计方案已经完成并通过评审。该发动机采用创新的自适应环境压强技术。',
+                    category: '研发进展',
+                    date: '2025-01-10',
+                    image: 'aerospike发动机.png',
+                    content: `
+                        <p>经过数月的精心设计，我们的Aerospike发动机设计方案已经完成并通过评审。该发动机采用创新的自适应环境压强技术，将在不同大气条件下保持最佳推进效率。</p>
+                        
+                        <h2>设计特点</h2>
+                        <p>Aerospike发动机是一种先进的火箭发动机设计，具有以下独特优势：</p>
+                        <ul>
+                            <li>自适应环境压强技术</li>
+                            <li>在不同高度下保持最佳效率</li>
+                            <li>减少发动机重量和复杂度</li>
+                            <li>提高整体推进系统性能</li>
+                        </ul>
+                        
+                        <h2>技术优势</h2>
+                        <p>相比传统火箭发动机，Aerospike发动机具有显著的技术优势：</p>
+                        <ul>
+                            <li>在真空和大气环境中都能高效工作</li>
+                            <li>减少燃料消耗，提高推进效率</li>
+                            <li>简化发动机结构，降低制造成本</li>
+                            <li>适应性强，可用于多种任务</li>
+                        </ul>
+                        
+                        <h2>制造计划</h2>
+                        <p>设计完成后，我们将立即开始制造阶段：</p>
+                        <ul>
+                            <li>建立制造生产线</li>
+                            <li>进行材料采购和加工</li>
+                            <li>开始发动机部件制造</li>
+                            <li>预计2025年底完成首台样机</li>
+                        </ul>
+                        
+                        <p>这标志着我们在先进推进技术方面迈出了重要一步，为未来的火箭发射任务奠定了坚实基础。</p>
+                    `
+                },
+                en: {
+                    title: 'Aerospike Engine Design Completed, Entering Manufacturing Phase',
+                    subtitle: 'After months of careful design, our Aerospike engine design plan has been completed and approved. This engine uses innovative adaptive environmental pressure technology.',
+                    category: 'R&D Progress',
+                    date: '2025-01-10',
+                    image: 'aerospike发动机.png',
+                    content: `
+                        <p>After months of careful design, our Aerospike engine design plan has been completed and approved. This engine uses innovative adaptive environmental pressure technology to maintain optimal propulsion efficiency under different atmospheric conditions.</p>
+                        
+                        <h2>Design Features</h2>
+                        <p>The Aerospike engine is an advanced rocket engine design with the following unique advantages:</p>
+                        <ul>
+                            <li>Adaptive environmental pressure technology</li>
+                            <li>Maintains optimal efficiency at different altitudes</li>
+                            <li>Reduces engine weight and complexity</li>
+                            <li>Improves overall propulsion system performance</li>
+                        </ul>
+                        
+                        <h2>Technical Advantages</h2>
+                        <p>Compared to traditional rocket engines, the Aerospike engine has significant technical advantages:</p>
+                        <ul>
+                            <li>Efficient operation in both vacuum and atmospheric environments</li>
+                            <li>Reduces fuel consumption and improves propulsion efficiency</li>
+                            <li>Simplifies engine structure and reduces manufacturing costs</li>
+                            <li>High adaptability for various missions</li>
+                        </ul>
+                        
+                        <h2>Manufacturing Plan</h2>
+                        <p>After design completion, we will immediately begin the manufacturing phase:</p>
+                        <ul>
+                            <li>Establish manufacturing production lines</li>
+                            <li>Procure and process materials</li>
+                            <li>Begin engine component manufacturing</li>
+                            <li>Expected to complete first prototype by end of 2025</li>
+                        </ul>
+                        
+                        <p>This marks an important step forward in advanced propulsion technology, laying a solid foundation for future rocket launch missions.</p>
+                    `
+                }
+            },
+            3: {
+                zh: {
+                    title: '5000N级地面试车台建设完成',
+                    subtitle: '我们的5000N级地面试车台建设已经完成，该试车台采用模块化设计，具备完善的测试能力。',
+                    category: '基础设施',
+                    date: '2025-01-05',
+                    image: '试车台.png',
+                    content: `
+                        <p>我们的5000N级地面试车台建设已经完成，该试车台采用模块化设计，具备完善的测试能力。将为发动机测试提供安全可靠的测试环境。</p>
+                        
+                        <h2>试车台特点</h2>
+                        <p>该试车台具有以下主要特点：</p>
+                        <ul>
+                            <li>最大推力测试能力：5kN</li>
+                            <li>模块化设计，便于运输和组装</li>
+                            <li>完善的测试数据采集系统</li>
+                            <li>安全可靠的测试环境</li>
+                        </ul>
+                        
+                        <h2>测试能力</h2>
+                        <p>试车台具备全面的发动机测试能力：</p>
+                        <ul>
+                            <li>卧式推力测试</li>
+                            <li>发动机性能评估</li>
+                            <li>燃烧效率测试</li>
+                            <li>振动和噪音分析</li>
+                        </ul>
+                        
+                        <h2>应用环境</h2>
+                        <p>试车台适用于多种测试环境：</p>
+                        <ul>
+                            <li>实验室环境测试</li>
+                            <li>野外环境测试</li>
+                            <li>不同气候条件下的测试</li>
+                            <li>长期稳定性测试</li>
+                        </ul>
+                        
+                        <p>试车台的建成将大大提升我们的发动机研发和测试能力，为后续的火箭发动机开发提供强有力的技术支撑。</p>
+                    `
+                },
+                en: {
+                    title: '5000N Level Ground Test Stand Construction Completed',
+                    subtitle: 'Our 5000N level ground test stand construction has been completed. This test stand adopts a modular design with comprehensive testing capabilities.',
+                    category: 'Infrastructure',
+                    date: '2025-01-05',
+                    image: '试车台.png',
+                    content: `
+                        <p>Our 5000N level ground test stand construction has been completed. This test stand adopts a modular design with comprehensive testing capabilities, providing a safe and reliable testing environment for engine testing.</p>
+                        
+                        <h2>Test Stand Features</h2>
+                        <p>This test stand has the following main features:</p>
+                        <ul>
+                            <li>Maximum thrust testing capability: 5kN</li>
+                            <li>Modular design for easy transportation and assembly</li>
+                            <li>Comprehensive test data acquisition system</li>
+                            <li>Safe and reliable testing environment</li>
+                        </ul>
+                        
+                        <h2>Testing Capabilities</h2>
+                        <p>The test stand has comprehensive engine testing capabilities:</p>
+                        <ul>
+                            <li>Horizontal thrust testing</li>
+                            <li>Engine performance evaluation</li>
+                            <li>Combustion efficiency testing</li>
+                            <li>Vibration and noise analysis</li>
+                        </ul>
+                        
+                        <h2>Application Environment</h2>
+                        <p>The test stand is suitable for various testing environments:</p>
+                        <ul>
+                            <li>Laboratory environment testing</li>
+                            <li>Field environment testing</li>
+                            <li>Testing under different climatic conditions</li>
+                            <li>Long-term stability testing</li>
+                        </ul>
+                        
+                        <p>The completion of the test stand will greatly enhance our engine R&D and testing capabilities, providing strong technical support for future rocket engine development.</p>
+                    `
+                }
+            },
+            4: {
+                zh: {
+                    title: '同轴涡旋式喷注器技术获得突破',
+                    subtitle: '我们自主研发的同轴涡旋式喷注器技术取得重要突破，通过金属粉末3D打印工艺成功制造出高精度喷注器。',
+                    category: '技术创新',
+                    date: '2024-12-28',
+                    image: '喷注器.png',
+                    content: `
+                        <p>我们自主研发的同轴涡旋式喷注器技术取得重要突破，通过金属粉末3D打印工艺成功制造出高精度喷注器。该技术将显著提升发动机的燃烧效率。</p>
+                        
+                        <h2>技术特点</h2>
+                        <p>同轴涡旋式喷注器具有以下技术特点：</p>
+                        <ul>
+                            <li>入口压力：2.5MPa</li>
+                            <li>材质：铜合金</li>
+                            <li>制造工艺：金属粉末3D打印</li>
+                            <li>混合角度：可根据需求调整</li>
+                        </ul>
+                        
+                        <h2>技术优势</h2>
+                        <p>相比传统喷注器，我们的技术具有显著优势：</p>
+                        <ul>
+                            <li>提高燃料混合效率</li>
+                            <li>减少燃料消耗</li>
+                            <li>提升燃烧稳定性</li>
+                            <li>降低制造成本</li>
+                        </ul>
+                        
+                        <h2>应用前景</h2>
+                        <p>该技术将在以下领域得到广泛应用：</p>
+                        <ul>
+                            <li>液体火箭发动机</li>
+                            <li>航空发动机</li>
+                            <li>工业燃烧设备</li>
+                            <li>其他推进系统</li>
+                        </ul>
+                        
+                        <p>这一技术突破将为我们后续的发动机研发提供重要技术支撑，推动整个航天工业的技术进步。</p>
+                    `
+                },
+                en: {
+                    title: 'Coaxial Swirl Injector Technology Breakthrough',
+                    subtitle: 'Our self-developed coaxial swirl injector technology has achieved an important breakthrough, successfully manufacturing high-precision injectors through metal powder 3D printing technology.',
+                    category: 'Technology Innovation',
+                    date: '2024-12-28',
+                    image: '喷注器.png',
+                    content: `
+                        <p>Our self-developed coaxial swirl injector technology has achieved an important breakthrough, successfully manufacturing high-precision injectors through metal powder 3D printing technology. This technology will significantly improve engine combustion efficiency.</p>
+                        
+                        <h2>Technical Features</h2>
+                        <p>The coaxial swirl injector has the following technical features:</p>
+                        <ul>
+                            <li>Inlet pressure: 2.5MPa</li>
+                            <li>Material: Copper alloy</li>
+                            <li>Manufacturing process: Metal powder 3D printing</li>
+                            <li>Mixing angle: Adjustable according to requirements</li>
+                        </ul>
+                        
+                        <h2>Technical Advantages</h2>
+                        <p>Compared to traditional injectors, our technology has significant advantages:</p>
+                        <ul>
+                            <li>Improves fuel mixing efficiency</li>
+                            <li>Reduces fuel consumption</li>
+                            <li>Enhances combustion stability</li>
+                            <li>Reduces manufacturing costs</li>
+                        </ul>
+                        
+                        <h2>Application Prospects</h2>
+                        <p>This technology will be widely applied in the following areas:</p>
+                        <ul>
+                            <li>Liquid rocket engines</li>
+                            <li>Aircraft engines</li>
+                            <li>Industrial combustion equipment</li>
+                            <li>Other propulsion systems</li>
+                        </ul>
+                        
+                        <p>This technological breakthrough will provide important technical support for our future engine development and promote technological progress in the entire aerospace industry.</p>
+                    `
+                }
+            },
+            5: {
+                zh: {
+                    title: '可复用火箭整箭系统设计启动',
+                    subtitle: '我们正式启动了100%可复用火箭整箭系统的设计工作。该项目将整合所有自主研发技术。',
+                    category: '项目进展',
+                    date: '2024-12-20',
+                    image: '可复用火箭整件.png',
+                    content: `
+                        <p>我们正式启动了100%可复用火箭整箭系统的设计工作。该项目将整合所有自主研发技术，打造完整的可复用火箭系统，预计2026年完成首飞。</p>
+                        
+                        <h2>项目目标</h2>
+                        <p>该项目的主要目标包括：</p>
+                        <ul>
+                            <li>实现100%火箭可复用</li>
+                            <li>大幅降低发射成本</li>
+                            <li>提高发射频率</li>
+                            <li>推动航天技术革命</li>
+                        </ul>
+                        
+                        <h2>技术整合</h2>
+                        <p>项目将整合以下自主研发技术：</p>
+                        <ul>
+                            <li>自研发动机技术</li>
+                            <li>先进热管理技术</li>
+                            <li>Aerospike发动机技术</li>
+                            <li>可复用设计技术</li>
+                        </ul>
+                        
+                        <h2>发展计划</h2>
+                        <p>项目将按以下计划推进：</p>
+                        <ul>
+                            <li>2025年：完成系统设计</li>
+                            <li>2026年：完成首台样机</li>
+                            <li>2026年底：完成首飞测试</li>
+                            <li>2027年：开始商业化运营</li>
+                        </ul>
+                        
+                        <p>这一项目的启动标志着我们在可复用火箭技术方面迈出了重要一步，将为未来的航天探索开辟新的可能性。</p>
+                    `
+                },
+                en: {
+                    title: 'Reusable Rocket System Design Initiated',
+                    subtitle: 'We have officially initiated the design work for the 100% reusable rocket system. This project will integrate all self-developed technologies.',
+                    category: 'Project Progress',
+                    date: '2024-12-20',
+                    image: '可复用火箭整件.png',
+                    content: `
+                        <p>We have officially initiated the design work for the 100% reusable rocket system. This project will integrate all self-developed technologies to create a complete reusable rocket system, expected to complete its first flight in 2026.</p>
+                        
+                        <h2>Project Goals</h2>
+                        <p>The main goals of this project include:</p>
+                        <ul>
+                            <li>Achieve 100% rocket reusability</li>
+                            <li>Significantly reduce launch costs</li>
+                            <li>Increase launch frequency</li>
+                            <li>Promote aerospace technology revolution</li>
+                        </ul>
+                        
+                        <h2>Technology Integration</h2>
+                        <p>The project will integrate the following self-developed technologies:</p>
+                        <ul>
+                            <li>Self-developed engine technology</li>
+                            <li>Advanced thermal management technology</li>
+                            <li>Aerospike engine technology</li>
+                            <li>Reusable design technology</li>
+                        </ul>
+                        
+                        <h2>Development Plan</h2>
+                        <p>The project will proceed according to the following plan:</p>
+                        <ul>
+                            <li>2025: Complete system design</li>
+                            <li>2026: Complete first prototype</li>
+                            <li>End of 2026: Complete first flight test</li>
+                            <li>2027: Begin commercial operations</li>
+                        </ul>
+                        
+                        <p>The initiation of this project marks an important step forward in reusable rocket technology and will open new possibilities for future space exploration.</p>
+                    `
+                }
+            },
+            6: {
+                zh: {
+                    title: '核心团队完成组建，研发能力全面提升',
+                    subtitle: '我们的核心团队已经完成组建，包括CEO&CTO梁智斌、CMO郑立勋、COO李羿葶等资深专家。',
+                    category: '团队动态',
+                    date: '2024-12-15',
+                    image: 'liangzhibin.png',
+                    content: `
+                        <p>我们的核心团队已经完成组建，包括CEO&CTO梁智斌、CMO郑立勋、COO李羿葶等资深专家。团队具备丰富的航天领域经验，将为项目发展提供强大支撑。</p>
+                        
+                        <h2>团队构成</h2>
+                        <p>核心团队由以下专家组成：</p>
+                        <ul>
+                            <li>梁智斌（CEO&CTO）：航天领域连续创业者，拥有5项火箭相关发明专利</li>
+                            <li>郑立勋（CMO）：产学研落地关键推手，清华大学经济管理学院博士后</li>
+                            <li>李羿葶（COO）：人形任务管理器，拥有超十年的团队管理经验</li>
+                        </ul>
+                        
+                        <h2>团队优势</h2>
+                        <p>我们的团队具有以下优势：</p>
+                        <ul>
+                            <li>丰富的航天领域经验</li>
+                            <li>强大的技术研发能力</li>
+                            <li>完善的商业运营经验</li>
+                            <li>深厚的学术背景</li>
+                        </ul>
+                        
+                        <h2>发展愿景</h2>
+                        <p>团队将致力于以下目标：</p>
+                        <ul>
+                            <li>推动航天技术革命</li>
+                            <li>降低太空探索成本</li>
+                            <li>实现可复用火箭技术</li>
+                            <li>为人类航天事业贡献力量</li>
+                        </ul>
+                        
+                        <p>核心团队的组建标志着我们在人才储备方面迈出了重要一步，为后续的技术研发和商业发展奠定了坚实基础。</p>
+                    `
+                },
+                en: {
+                    title: 'Core Team Assembly Completed, R&D Capability Significantly Enhanced',
+                    subtitle: 'Our core team has completed assembly, including senior experts such as CEO&CTO Liang Zhibin, CMO Zheng Lixun, COO Li Yiting, etc.',
+                    category: 'Team Dynamics',
+                    date: '2024-12-15',
+                    image: 'liangzhibin.png',
+                    content: `
+                        <p>Our core team has completed assembly, including senior experts such as CEO&CTO Liang Zhibin, CMO Zheng Lixun, COO Li Yiting, etc. The team has rich aerospace experience and will provide strong support for project development.</p>
+                        
+                        <h2>Team Composition</h2>
+                        <p>The core team consists of the following experts:</p>
+                        <ul>
+                            <li>Liang Zhibin (CEO&CTO): Aerospace serial entrepreneur with 5 rocket-related invention patents</li>
+                            <li>Zheng Lixun (CMO): Key promoter of industry-university-research landing, postdoctoral at Tsinghua University School of Economics and Management</li>
+                            <li>Li Yiting (COO): Human task manager with over ten years of team management experience</li>
+                        </ul>
+                        
+                        <h2>Team Advantages</h2>
+                        <p>Our team has the following advantages:</p>
+                        <ul>
+                            <li>Rich aerospace experience</li>
+                            <li>Strong technical R&D capabilities</li>
+                            <li>Comprehensive commercial operation experience</li>
+                            <li>Deep academic background</li>
+                        </ul>
+                        
+                        <h2>Development Vision</h2>
+                        <p>The team will be committed to the following goals:</p>
+                        <ul>
+                            <li>Promote aerospace technology revolution</li>
+                            <li>Reduce space exploration costs</li>
+                            <li>Realize reusable rocket technology</li>
+                            <li>Contribute to human aerospace industry</li>
+                        </ul>
+                        
+                        <p>The assembly of the core team marks an important step forward in talent reserves and lays a solid foundation for future technical R&D and commercial development.</p>
+                    `
+                }
+            }
+        };
+
+        // 获取URL参数中的新闻ID
+        function getNewsId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id')) || 1;
+        }
+
+        // 加载新闻内容
+        function loadNewsContent() {
+            const newsId = getNewsId();
+            const currentLang = window.currentLang || 'zh';
+            const news = newsData[newsId];
+            
+            if (!news) {
+                // 如果找不到新闻，显示默认内容
+                return;
+            }
+            
+            const data = news[currentLang];
+            
+            // 更新页面内容
+            document.getElementById('news-title').textContent = data.title;
+            document.getElementById('news-subtitle').textContent = data.subtitle;
+            document.getElementById('news-category').textContent = data.category;
+            document.getElementById('news-date').textContent = data.date;
+            document.getElementById('news-image').src = data.image;
+            document.getElementById('news-image').alt = data.title;
+            document.getElementById('news-body').innerHTML = data.content;
+            
+            // 更新页面标题
+            document.title = `${data.title} - 冕巢航天`;
+        }
+
+        // 页面加载时执行
+        document.addEventListener('DOMContentLoaded', function() {
+            loadNewsContent();
+        });
+
+        // 语言切换时重新加载内容
+        window.addEventListener('languageChanged', function() {
+            loadNewsContent();
+        });
+    </script>
+</body>
+</html> 
