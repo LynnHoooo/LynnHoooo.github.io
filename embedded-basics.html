@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌入式系统入门资料 - 冕巢航天人才培训</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-microchip"></i> 嵌入式系统入门</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">返回主页</a></li>
+                <li><a href="#basics">基础概念</a></li>
+                <li><a href="#stm32">STM32学习</a></li>
+                <li><a href="#communication">通信协议</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero embedded-hero">
+            <div class="hero-content">
+                <h1 class="embedded-title">嵌入式系统入门资料</h1>
+                <p class="hero-subtitle">从零开始学习嵌入式系统开发，掌握航天器控制系统核心技术</p>
+                <a href="#basics" class="cta-button-large">开始学习</a>
+            </div>
+            <div class="hero-decoration">
+                <div class="circuit-pattern">
+                    <i class="fas fa-microchip"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="basics" class="section">
+            <div class="container">
+                <h2><i class="fas fa-book-open"></i> 嵌入式系统基础概念</h2>
+                <div class="section-grid">
+                    <div class="content-card">
+                        <h3>什么是嵌入式系统？</h3>
+                        <p>嵌入式系统是专为特定应用而设计的计算机系统，通常集成在更大的系统中。在航天领域，嵌入式系统负责：</p>
+                        <ul>
+                            <li>飞行控制和导航</li>
+                            <li>数据采集和处理</li>
+                            <li>通信和遥测</li>
+                            <li>载荷管理</li>
+                            <li>故障检测和保护</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>嵌入式系统特点</h3>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>实时性</h4>
+                                    <p>必须在规定时间内响应和处理事件</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-battery-half"></i>
+                                <div>
+                                    <h4>低功耗</h4>
+                                    <p>优化能耗，延长系统工作时间</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>可靠性</h4>
+                                    <p>在恶劣环境下稳定运行</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-compress-arrows-alt"></i>
+                                <div>
+                                    <h4>资源受限</h4>
+                                    <p>内存、处理能力和存储空间有限</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>航天嵌入式系统架构</h3>
+                        <div class="system-architecture">
+                            <div class="arch-layer">
+                                <h4>应用层</h4>
+                                <p>飞行控制算法、导航算法、载荷控制</p>
+                            </div>
+                            <div class="arch-layer">
+                                <h4>操作系统层</h4>
+                                <p>实时操作系统（RTOS）、任务调度</p>
+                            </div>
+                            <div class="arch-layer">
+                                <h4>驱动层</h4>
+                                <p>传感器驱动、执行器驱动、通信驱动</p>
+                            </div>
+                            <div class="arch-layer">
+                                <h4>硬件层</h4>
+                                <p>微控制器、传感器、执行器、通信模块</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stm32" class="section">
+            <div class="container">
+                <h2><i class="fas fa-microchip"></i> STM32学习指南</h2>
+
+                <div class="stm32-learning-path">
+                    <h3>STM32学习路径</h3>
+                    <div class="learning-timeline">
+                        <div class="timeline-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>基础准备</h4>
+                                <ul>
+                                    <li>C语言基础</li>
+                                    <li>数字电路知识</li>
+                                    <li>微控制器原理</li>
+                                    <li>开发环境搭建</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>入门实践</h4>
+                                <ul>
+                                    <li>GPIO控制（LED、按键）</li>
+                                    <li>中断系统</li>
+                                    <li>定时器应用</li>
+                                    <li>串口通信</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>进阶应用</h4>
+                                <ul>
+                                    <li>ADC/DAC转换</li>
+                                    <li>PWM信号生成</li>
+                                    <li>SPI/I2C通信</li>
+                                    <li>DMA数据传输</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>系统集成</h4>
+                                <ul>
+                                    <li>RTOS移植</li>
+                                    <li>文件系统</li>
+                                    <li>网络通信</li>
+                                    <li>综合项目开发</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stm32-development">
+                    <div class="development-header">
+                        <h3><i class="fas fa-tools"></i> STM32开发环境</h3>
+                        <p class="dev-subtitle">完整的STM32开发工具链，从设计到调试一站式解决方案</p>
+                    </div>
+                    
+                    <div class="dev-tools-grid">
+                        <div class="dev-tool-card primary">
+                            <div class="tool-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>Keil MDK-ARM</h4>
+                                <p>专业ARM开发IDE，支持代码编写、编译和调试</p>
+                                <div class="tool-features">
+                                    <span class="feature-badge">代码编辑</span>
+                                    <span class="feature-badge">编译调试</span>
+                                </div>
+                                <a href="https://pan.baud-dance.com/d/STM32CubeMX/mdk542a.exe" target="_blank" class="tool-download-btn">
+                                    <i class="fas fa-download"></i> 下载 Keil
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="dev-tool-card secondary">
+                            <div class="tool-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>STM32CubeMX</h4>
+                                <p>图形化配置工具，快速生成初始化代码</p>
+                                <div class="tool-features">
+                                    <span class="feature-badge">图形配置</span>
+                                    <span class="feature-badge">代码生成</span>
+                                </div>
+                                <a href="https://pan.baud-dance.com/d/STM32CubeMX/SetupSTM32CubeMX-6.15.0-Win.exe" target="_blank" class="tool-download-btn">
+                                    <i class="fas fa-download"></i> 下载 CubeMX
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="dev-tool-card accent">
+                            <div class="tool-icon">
+                                <i class="fas fa-usb"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>ST-LINK调试器</h4>
+                                <p>官方调试烧录工具，支持在线调试</p>
+                                <div class="tool-features">
+                                    <span class="feature-badge">程序烧录</span>
+                                    <span class="feature-badge">在线调试</span>
+                                </div>
+                                <a href="https://blog.csdn.net/weixin_44807874/article/details/146153534" target="_blank" class="tool-download-btn">
+                                    <i class="fas fa-book"></i> 驱动安装指南
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="dev-tool-card utility">
+                            <div class="tool-icon">
+                                <i class="fas fa-terminal"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>串口调试助手</h4>
+                                <p>在线串口调试工具，方便数据收发测试</p>
+                                <div class="tool-features">
+                                    <span class="feature-badge">数据收发</span>
+                                    <span class="feature-badge">在线工具</span>
+                                </div>
+                                <a href="https://serial.baud-dance.com/#/" target="_blank" class="tool-download-btn">
+                                    <i class="fas fa-external-link-alt"></i> 在线使用
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="development-tips">
+                        <div class="tips-header">
+                            <h4><i class="fas fa-lightbulb"></i> 开发环境配置提示</h4>
+                            <p class="tips-subtitle">快速搭建STM32开发环境的实用建议</p>
+                        </div>
+                        <div class="tips-container">
+                            <div class="tip-card install-order">
+                                <div class="tip-icon">
+                                    <i class="fas fa-list-ol"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h5>安装顺序</h5>
+                                    <p>推荐安装顺序：Keil → CubeMX → ST-LINK驱动</p>
+                                    <div class="install-steps">
+                                        <span class="step">1. Keil MDK</span>
+                                        <span class="step">2. STM32CubeMX</span>
+                                        <span class="step">3. ST-LINK驱动</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-card driver-setup">
+                                <div class="tip-icon">
+                                    <i class="fas fa-usb"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h5>驱动配置</h5>
+                                    <p>CH340驱动是串口通信的关键组件</p>
+                                    <a href="https://blog.csdn.net/weixin_44807874/article/details/146153534" target="_blank" class="tip-link">
+                                        <i class="fas fa-external-link-alt"></i> 详细安装指南
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-card workflow">
+                                <div class="tip-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h5>工作流程</h5>
+                                    <p>工具协同使用方式</p>
+                                    <div class="workflow-steps">
+                                        <div class="workflow-item">CubeMX配置</div>
+                                        <div class="workflow-arrow">→</div>
+                                        <div class="workflow-item">Keil编译</div>
+                                        <div class="workflow-arrow">→</div>
+                                        <div class="workflow-item">串口调试</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stm32-resources">
+                    <div class="resources-header">
+                        <h3><i class="fas fa-graduation-cap"></i> STM32学习资源</h3>
+                        <p class="resources-subtitle">精选优质学习资源，助您快速掌握STM32技术</p>
+                    </div>
+                    
+                    <div class="resources-grid">
+                        <div class="resource-card featured">
+                            <div class="resource-badge">推荐</div>
+                            <div class="resource-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="resource-content">
+                                <h4>波特律动 STM32教程</h4>
+                                <p>精心设计的视频教程，简洁易懂的语句，配合清晰动画，助您快速掌握STM32知识。</p>
+                                <div class="resource-features">
+                                    <div class="feature-item">
+                                        <i class="fas fa-video"></i>
+                                        <span>视频教程</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>详尽文档</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-code"></i>
+                                        <span>丰富例程</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-tools"></i>
+                                        <span>开源工具</span>
+                                    </div>
+                                </div>
+                                <a href="https://docs.baud-dance.com/" target="_blank" class="resource-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> 访问教程
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="document-resources">
+                        <h4><i class="fas fa-file-alt"></i> 技术文档资料</h4>
+                        <div class="doc-list">
+                            <div class="doc-item">
+                                <i class="fas fa-file-word"></i>
+                                <div class="doc-info">
+                                    <h5>MPU6050传感器技术文档</h5>
+                                    <p>详细介绍MPU6050六轴传感器的使用方法、寄存器配置、编程示例等技术要点</p>
+                                    <div class="doc-tags">
+                                        <span class="doc-tag">传感器</span>
+                                        <span class="doc-tag">IMU</span>
+                                        <span class="doc-tag">六轴</span>
+                                        <span class="doc-tag">I2C</span>
+                                    </div>
+                                </div>
+                                <a href="MPU6050.docx" download class="doc-download">
+                                    <i class="fas fa-download"></i>
+                                    下载文档
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stm32-examples">
+                    <h3>核心代码示例</h3>
+                    <div class="code-examples">
+                        <div class="code-card">
+                            <h4><i class="fas fa-lightbulb"></i> GPIO控制</h4>
+                            <pre><code class="language-c">
+// GPIO初始化
+void MX_GPIO_Init(void) {
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    
+    GPIO_InitStruct.Pin = GPIO_PIN_5;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+}
+
+// LED控制
+void LED_Toggle(void) {
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+}
+                            </code></pre>
+                        </div>
+                        
+                        <div class="code-card">
+                            <h4><i class="fas fa-exchange-alt"></i> UART通信</h4>
+                            <pre><code class="language-c">
+UART_HandleTypeDef huart2;
+
+void MX_USART2_UART_Init(void) {
+    huart2.Instance = USART2;
+    huart2.Init.BaudRate = 115200;
+    huart2.Init.WordLength = UART_WORDLENGTH_8B;
+    huart2.Init.StopBits = UART_STOPBITS_1;
+    huart2.Init.Parity = UART_PARITY_NONE;
+    HAL_UART_Init(&huart2);
+}
+
+void UART_SendString(char* str) {
+    HAL_UART_Transmit(&huart2, (uint8_t*)str, strlen(str), 1000);
+}
+                            </code></pre>
+                        </div>
+                        
+                        <div class="code-card">
+                            <h4><i class="fas fa-clock"></i> 定时器应用</h4>
+                            <pre><code class="language-c">
+TIM_HandleTypeDef htim2;
+
+void MX_TIM2_Init(void) {
+    htim2.Instance = TIM2;
+    htim2.Init.Prescaler = 8400-1;  // 10kHz
+    htim2.Init.Period = 10000-1;    // 1Hz
+    HAL_TIM_Base_Init(&htim2);
+}
+
+// 定时器中断回调
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+    if(htim->Instance == TIM2) {
+        LED_Toggle();  // 每秒闪烁一次
+    }
+}
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="communication" class="section">
+            <div class="container">
+                <h2><i class="fas fa-network-wired"></i> 通信协议</h2>
+                <div class="protocol-grid-inline">
+                    <div class="protocol-card-compact">
+                        <h3><i class="fas fa-exchange-alt"></i> UART</h3>
+                        <p>串口通信协议</p>
+                    </div>
+                    
+                    <div class="protocol-card-compact">
+                        <h3><i class="fas fa-sitemap"></i> SPI</h3>
+                        <p>高速串行接口</p>
+                    </div>
+                    
+                    <div class="protocol-card-compact">
+                        <h3><i class="fas fa-link"></i> I2C</h3>
+                        <p>两线制总线</p>
+                    </div>
+                    
+                    <div class="protocol-card-compact">
+                        <h3><i class="fas fa-car"></i> CAN</h3>
+                        <p>控制器局域网</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <div class="container">
+                <h2><i class="fas fa-question-circle"></i> 常见问题</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3><i class="fas fa-exclamation-triangle"></i> CubeMX高版本无法打开低版本工程</h3>
+                            <i class="fas fa-chevron-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="solution-content">
+                                <h4>问题描述：</h4>
+                                <p>使用新版本STM32CubeMX打开旧版本创建的.ioc工程文件时，提示版本不兼容无法打开。</p>
+                                
+                                <h4>解决方案：</h4>
+                                <div class="solution-steps">
+                                    <div class="step">
+                                        <span class="step-number">1</span>
+                                        <div class="step-content">
+                                            <h5>方法一：修改版本号</h5>
+                                            <p>使用记事本打开.ioc文件，找到版本号行，修改为当前CubeMX版本号</p>
+                                            <div class="code-example">
+                                                <code>ProjectManager.CubeMxVersion=6.15.0</code>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">2</span>
+                                        <div class="step-content">
+                                            <h5>方法二：软件更新</h5>
+                                            <p>直接更新STM32CubeMX到最新版本，获得更好的兼容性</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3><i class="fas fa-usb"></i> ST-LINK无法烧录程序</h3>
+                            <i class="fas fa-chevron-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="solution-content">
+                                <h4>问题描述：</h4>
+                                <p>ST-LINK调试器连接开发板后，无法正常烧录程序到STM32芯片中。</p>
+                                
+                                <h4>解决方案：</h4>
+                                <div class="solution-steps">
+                                    <div class="step">
+                                        <span class="step-number">1</span>
+                                        <div class="step-content">
+                                            <h5>检查硬件连接</h5>
+                                            <p>确认ST-LINK与开发板连接正常，电源指示灯亮起</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">2</span>
+                                        <div class="step-content">
+                                            <h5>复位烧录法</h5>
+                                            <p>长按开发板上的复位键，同时点击烧录，在烧录开始后松开复位键</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">3</span>
+                                        <div class="step-content">
+                                            <h5>更换调试器</h5>
+                                            <p>如果问题持续存在，考虑更换ST-LINK调试器硬件</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3><i class="fas fa-code"></i> 编译错误和调试技巧</h3>
+                            <i class="fas fa-chevron-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="solution-content">
+                                <h4>常见编译问题：</h4>
+                                <div class="solution-steps">
+                                    <div class="step">
+                                        <span class="step-number">1</span>
+                                        <div class="step-content">
+                                            <h5>头文件路径错误</h5>
+                                            <p>检查Include Paths设置，确保所有必要的头文件路径已添加</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">2</span>
+                                        <div class="step-content">
+                                            <h5>函数未定义</h5>
+                                            <p>确认函数声明和定义匹配，检查是否遗漏源文件添加到工程</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">3</span>
+                                        <div class="step-content">
+                                            <h5>内存溢出</h5>
+                                            <p>检查Stack和Heap大小设置，优化代码减少内存占用</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>嵌入式系统学习</h3>
+                    <p>专业的嵌入式技术培训平台</p>
+                </div>
+                <div class="footer-section">
+                    <h4>学习模块</h4>
+                    <ul>
+                        <li><a href="#basics">基础概念</a></li>
+                        <li><a href="#stm32">STM32学习</a></li>
+                        <li><a href="#communication">通信协议</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>相关链接</h4>
+                    <ul>
+                        <li><a href="index.html">返回主页</a></li>
+                        <li><a href="https://docs.baud-dance.com/" target="_blank">波特律动教程</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 冕巢航天人才培训. 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 嵌入式页面特定功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ 折叠功能
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggle = item.querySelector('.faq-toggle');
+                
+                question.addEventListener('click', () => {
+                    const isOpen = answer.style.display === 'block';
+                    
+                    // 关闭所有其他FAQ
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            const otherToggle = otherItem.querySelector('.faq-toggle');
+                            otherAnswer.style.display = 'none';
+                            otherToggle.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // 切换当前FAQ
+                    if (isOpen) {
+                        answer.style.display = 'none';
+                        toggle.style.transform = 'rotate(0deg)';
+                    } else {
+                        answer.style.display = 'block';
+                        toggle.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+            
+            // 代码高亮功能
+            const codeBlocks = document.querySelectorAll('pre code');
+            codeBlocks.forEach(block => {
+                // 添加复制按钮
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'copy-code-btn';
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                copyBtn.title = '复制代码';
+                
+                const pre = block.parentElement;
+                pre.style.position = 'relative';
+                pre.appendChild(copyBtn);
+                
+                copyBtn.addEventListener('click', () => {
+                    const text = block.textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                        copyBtn.style.color = '#4CAF50';
+                        setTimeout(() => {
+                            copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                            copyBtn.style.color = '';
+                        }, 2000);
+                    });
+                });
+            });
+            
+            // 学习进度跟踪
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+            
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -20% 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // 添加返回顶部按钮
+            const backToTop = document.createElement('button');
+            backToTop.className = 'back-to-top-embedded';
+            backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            backToTop.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                border: none;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            `;
+            
+            document.body.appendChild(backToTop);
+            
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.style.opacity = '1';
+                    backToTop.style.visibility = 'visible';
+                } else {
+                    backToTop.style.opacity = '0';
+                    backToTop.style.visibility = 'hidden';
+                }
+            });
+            
+            // 添加学习进度条
+            const progressBar = document.createElement('div');
+            progressBar.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 4px;
+                background: linear-gradient(90deg, #667eea, #764ba2);
+                z-index: 1001;
+                transition: width 0.1s ease;
+            `;
+            document.body.appendChild(progressBar);
+            
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            });
+        });
+    </script>
+    
+    <style>
+        /* 嵌入式页面专用样式优化 */
+        .embedded-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .embedded-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="30" r="0.5" fill="white" opacity="0.15"/><circle cx="40" cy="70" r="1.5" fill="white" opacity="0.08"/><circle cx="90" cy="80" r="1" fill="white" opacity="0.12"/><circle cx="10" cy="60" r="0.8" fill="white" opacity="0.1"/></svg>');
+            pointer-events: none;
+        }
+        
+        .embedded-hero .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .embedded-title {
+            font-size: 3.5rem !important;
+            font-weight: 700 !important;
+            color: white !important;
+            margin-bottom: 1.5rem !important;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        
+        .cta-button-large {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white !important;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(238, 90, 36, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button-large::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button-large:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(238, 90, 36, 0.6);
+            color: white !important;
+        }
+        
+        .cta-button-large:hover::before {
+            left: 100%;
+        }
+        
+        .hero-decoration {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            opacity: 0.1;
+        }
+        
+        .circuit-pattern {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: circuitPulse 4s ease-in-out infinite;
+        }
+        
+        .circuit-pattern i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        @keyframes circuitPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.1; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 0.2; }
+        }
+        
+        /* 增强内容卡片样式 */
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        /* 工具卡片增强 */
+        .tool-card-compact {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tool-card-compact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-left-color: #764ba2;
+        }
+        
+        .tool-download {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .tool-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+        
+        /* 学习路径时间线增强 */
+        .timeline-step {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .timeline-step:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* 代码块增强 */
+        .code-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+        
+        .code-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+        
+        .code-card h4 {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            margin: 0;
+            padding: 1rem 1.5rem;
+            color: #667eea;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            .embedded-title {
+                font-size: 2.5rem !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button-large {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+            
+            .hero-decoration {
+                display: none;
+            }
+            
+            .embedded-hero {
+                padding: 3rem 0;
+                min-height: 400px;
+            }
+        }
+        
+        /* STM32开发环境优化样式 */
+        .development-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .dev-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .dev-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .dev-tool-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dev-tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        
+        .dev-tool-card.primary::before {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .dev-tool-card.secondary::before {
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+        }
+        
+        .dev-tool-card.accent::before {
+            background: linear-gradient(90deg, #43e97b, #38f9d7);
+        }
+        
+        .dev-tool-card.utility::before {
+            background: linear-gradient(90deg, #fa709a, #fee140);
+        }
+        
+        .dev-tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .dev-tool-card.primary .tool-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .dev-tool-card.secondary .tool-icon {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+        
+        .dev-tool-card.accent .tool-icon {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+        
+        .dev-tool-card.utility .tool-icon {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+        
+        .tool-features {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .feature-badge {
+            background: #f8f9ff;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .tool-download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .tool-download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+        
+        /* 配置提示样式 */
+        .tips-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .tips-subtitle {
+            color: #666;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .tips-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tip-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .tip-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .tip-card.install-order .tip-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .tip-card.driver-setup .tip-icon {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+        
+        .tip-card.workflow .tip-icon {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+        
+        .install-steps {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            background: #f8f9ff;
+            color: #667eea;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .workflow-item {
+            background: #f8f9ff;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .workflow-arrow {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .tip-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+        
+        .tip-link:hover {
+            color: #764ba2;
+        }
+        
+        /* 学习资源样式 */
+        .resources-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .resources-subtitle {
+            color: #666;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .resources-grid {
+            margin-bottom: 3rem;
+        }
+        
+        .resource-card.featured {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            text-align: center;
+        }
+        
+        .resource-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .resource-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .resource-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem;
+            background: #f8f9ff;
+            border-radius: 10px;
+        }
+        
+        .feature-item i {
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+        
+        .resource-link-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .resource-link-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+        
+        /* 原有样式保持 */
+        .faq-answer {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-menu a.active {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .copy-code-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        pre:hover .copy-code-btn {
+            opacity: 1;
+        }
+        
+        .copy-code-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 改进代码块样式 */
+        pre {
+            position: relative;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        code {
+            color: #2ecc71;
+            font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+        }
+        
+        /* 增强学习卡片效果 */
+        .content-card, .tool-card-compact, .resource-card {
+            transition: all 0.3s ease;
+        }
+        
+        .content-card:hover, .tool-card-compact:hover, .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 时间线增强效果 */
+        .timeline-step {
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-step:hover {
+            transform: scale(1.02);
+        }
+        
+        .timeline-step:hover .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scale(1.1);
+        }
+        
+        /* 工具下载按钮增强 */
+        .tool-download, .resource-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-download::before, .resource-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .tool-download:hover::before, .resource-link:hover::before {
+            left: 100%;
+        }
+    </style>
+</body>
+</html>

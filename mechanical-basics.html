@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机械设计入门 - 冕巢航天人才培训</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-cogs"></i> 机械设计入门</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">返回主页</a></li>
+                <li><a href="#basics">设计基础</a></li>
+                <li><a href="#software">设计软件</a></li>
+                <li><a href="#materials">材料选择</a></li>
+                <li><a href="#analysis">结构分析</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero mechanical-hero">
+            <div class="hero-content">
+                <h1 class="mechanical-title">机械设计入门</h1>
+                <p class="hero-subtitle">掌握航天器结构与机械系统设计，从概念到实现的完整流程</p>
+                <a href="#basics" class="cta-button-large">开始学习</a>
+            </div>
+            <div class="hero-decoration">
+                <div class="gear-animation">
+                    <div class="gear gear-1">⚙️</div>
+                    <div class="gear gear-2">⚙️</div>
+                    <div class="gear gear-3">⚙️</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="basics" class="section">
+            <div class="container">
+                <h2><i class="fas fa-drafting-compass"></i> 设计基础</h2>
+                <div class="section-grid">
+                    <div class="content-card">
+                        <h3>机械设计概述</h3>
+                        <p>机械设计是根据使用要求对机械的工作原理、结构、运动方式、力和能量的传递方式、各个零件的材料和形状尺寸、润滑方法等进行构思、分析和计算并将其转化为具体的描述以作为制造依据的工作过程。</p>
+                        <div class="design-principles">
+                            <h4>设计原则</h4>
+                            <div class="principle-list">
+                                <div class="principle-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>功能性原则</span>
+                                </div>
+                                <div class="principle-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>可靠性原则</span>
+                                </div>
+                                <div class="principle-item">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>经济性原则</span>
+                                </div>
+                                <div class="principle-item">
+                                    <i class="fas fa-tools"></i>
+                                    <span>可制造性原则</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>航天机械设计特点</h3>
+                        <div class="aerospace-features">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-weight-hanging"></i>
+                                </div>
+                                <h4>轻量化设计</h4>
+                                <p>每公斤载荷成本极高，要求最优的强度重量比</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-thermometer-half"></i>
+                                </div>
+                                <h4>极端环境</h4>
+                                <p>需承受高温、低温、真空、辐射等恶劣条件</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <h4>高可靠性</h4>
+                                <p>任务成功率要求极高，不允许现场维修</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>动载荷</h4>
+                                <p>发射过程承受巨大的加速度和振动载荷</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>设计流程</h3>
+                        <div class="design-process">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>需求分析</h4>
+                                    <p>明确设计目标和约束条件</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>方案设计</h4>
+                                    <p>提出多种可行的设计方案</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>详细设计</h4>
+                                    <p>确定具体的结构和尺寸</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>分析验证</h4>
+                                    <p>进行强度、刚度等分析</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="software" class="section">
+            <div class="container">
+                <h2><i class="fas fa-desktop"></i> 设计软件</h2>
+                <div class="software-workflow">
+                    <h3>CAD/CAE工作流程</h3>
+                    <div class="workflow-chain">
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h4>三维建模</h4>
+                            <p><strong>SolidWorks / CATIA</strong></p>
+                            <p>创建精确的三维几何模型</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h4>仿真分析</h4>
+                            <p><strong>ANSYS / Abaqus</strong></p>
+                            <p>进行结构、热、流体分析</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h4>制造加工</h4>
+                            <p><strong>CAM软件</strong></p>
+                            <p>生成数控加工程序</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="software-grid">
+                    <div class="software-category">
+                        <h3>三维建模软件</h3>
+                        <div class="software-cards">
+                            <div class="software-card featured">
+                                <div class="software-icon">🔧</div>
+                                <h4>SolidWorks</h4>
+                                <p>易学易用的参数化建模软件</p>
+                                <div class="software-features">
+                                    <span class="feature-tag">参数化建模</span>
+                                    <span class="feature-tag">装配设计</span>
+                                    <span class="feature-tag">工程图</span>
+                                </div>
+                                <a href="#" class="software-btn">学习教程</a>
+                            </div>
+                            <div class="software-card">
+                                <div class="software-icon">✈️</div>
+                                <h4>CATIA</h4>
+                                <p>航空航天行业标准建模软件</p>
+                                <div class="software-features">
+                                    <span class="feature-tag">曲面建模</span>
+                                    <span class="feature-tag">大装配</span>
+                                    <span class="feature-tag">航空标准</span>
+                                </div>
+                                <a href="#" class="software-btn">学习教程</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="software-category">
+                        <h3>仿真分析软件</h3>
+                        <div class="software-cards">
+                            <div class="software-card">
+                                <div class="software-icon">📊</div>
+                                <h4>ANSYS Workbench</h4>
+                                <p>综合性有限元分析平台</p>
+                                <div class="software-features">
+                                    <span class="feature-tag">结构分析</span>
+                                    <span class="feature-tag">热分析</span>
+                                    <span class="feature-tag">流体分析</span>
+                                </div>
+                                <a href="#" class="software-btn">学习教程</a>
+                            </div>
+                            <div class="software-card">
+                                <div class="software-icon">🔬</div>
+                                <h4>Abaqus</h4>
+                                <p>高端非线性有限元分析软件</p>
+                                <div class="software-features">
+                                    <span class="feature-tag">非线性分析</span>
+                                    <span class="feature-tag">动力学分析</span>
+                                    <span class="feature-tag">多物理场</span>
+                                </div>
+                                <a href="#" class="software-btn">学习教程</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="materials" class="section">
+            <div class="container">
+                <h2><i class="fas fa-atom"></i> 材料选择</h2>
+                <div class="materials-grid">
+                    <div class="material-category">
+                        <h3>航天常用材料</h3>
+                        <div class="material-cards">
+                            <div class="material-card aluminum">
+                                <div class="material-header">
+                                    <h4>铝合金</h4>
+                                    <span class="density">密度: 2.7 g/cm³</span>
+                                </div>
+                                <div class="material-properties">
+                                    <div class="property">
+                                        <span class="prop-name">强度</span>
+                                        <div class="prop-bar">
+                                            <div class="prop-fill" style="width: 70%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="property">
+                                        <span class="prop-name">重量</span>
+                                        <div class="prop-bar">
+                                            <div class="prop-fill" style="width: 30%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="property">
+                                        <span class="prop-name">成本</span>
+                                        <div class="prop-bar">
+                                            <div class="prop-fill" style="width: 40%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>轻质高强，易加工，广泛用于结构件</p>
+                            </div>
+                            
+                            <div class="material-card titanium">
+                                <div class="material-header">
+                                    <h4>钛合金</h4>
+                                    <span class="density">密度: 4.5 g/cm³</span>
+                                </div>
+                                <div class="material-properties">
+                                    <div class="property">
+                                        <span class="prop-name">强度</span>
+                                        <div class="prop-bar">
+                                            <div class="prop-fill" style="width: 95%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="property">
+                                        <span class="prop-name">重量</span>
+                                        <div class="prop-bar">
+                                            <div class="prop-fill" style="width: 50%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="property">
+                                        <span class="prop-name">成本</span>
+                                        <div class="prop-bar">
+                                            <div class="prop-fill" style="width: 90%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>超高强度，耐高温，用于关键承力结构</p>
+                            </div>
+                            
+                            <div class="material-card composite">
+                                <div class="material-header">
+                                    <h4>碳纤维复合材料</h4>
+                                    <span class="density">密度: 1.6 g/cm³</span>
+                                </div>
+                                <div class="material-properties">
+                                    <div class="property">
+                                        <span class="prop-name">强度</span>
+                                        <div class="prop-bar">
+                                            <div class="prop-fill" style="width: 100%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="property">
+                                        <span class="prop-name">重量</span>
+                                        <div class="prop-bar">
+                                            <div class="prop-fill" style="width: 20%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="property">
+                                        <span class="prop-name">成本</span>
+                                        <div class="prop-bar">
+                                            <div class="prop-fill" style="width: 100%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>最高比强度，可设计性强，用于高端应用</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analysis" class="section">
+            <div class="container">
+                <h2><i class="fas fa-chart-line"></i> 结构分析</h2>
+                <div class="analysis-types">
+                    <div class="analysis-card">
+                        <div class="analysis-icon">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                        </div>
+                        <h3>静力学分析</h3>
+                        <p>分析结构在静载荷作用下的应力、应变和位移</p>
+                        <div class="analysis-formula">
+                            <h4>基本方程：</h4>
+                            <p>σ = F/A （应力 = 力/面积）</p>
+                        </div>
+                        <div class="analysis-applications">
+                            <span class="app-tag">强度校核</span>
+                            <span class="app-tag">安全系数</span>
+                            <span class="app-tag">优化设计</span>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-card">
+                        <div class="analysis-icon">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <h3>模态分析</h3>
+                        <p>确定结构的固有频率和振型，避免共振</p>
+                        <div class="analysis-formula">
+                            <h4>特征方程：</h4>
+                            <p>[K - ω²M]{φ} = 0</p>
+                        </div>
+                        <div class="analysis-applications">
+                            <span class="app-tag">固有频率</span>
+                            <span class="app-tag">振型分析</span>
+                            <span class="app-tag">避免共振</span>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-card">
+                        <div class="analysis-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>动力学分析</h3>
+                        <p>分析结构在动载荷作用下的响应</p>
+                        <div class="analysis-formula">
+                            <h4>运动方程：</h4>
+                            <p>[M]{ü} + [C]{u̇} + [K]{u} = {F(t)}</p>
+                        </div>
+                        <div class="analysis-applications">
+                            <span class="app-tag">瞬态响应</span>
+                            <span class="app-tag">冲击分析</span>
+                            <span class="app-tag">疲劳寿命</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>机械设计学习</h3>
+                    <p>专业的机械设计技术培训平台</p>
+                </div>
+                <div class="footer-section">
+                    <h4>学习模块</h4>
+                    <ul>
+                        <li><a href="#basics">设计基础</a></li>
+                        <li><a href="#software">设计软件</a></li>
+                        <li><a href="#materials">材料选择</a></li>
+                        <li><a href="#analysis">结构分析</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>相关链接</h4>
+                    <ul>
+                        <li><a href="index.html">返回主页</a></li>
+                        <li><a href="talent.html">人才培养</a></li>
+                        <li><a href="cfd-basics.html">CFD流体力学</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 冕巢航天人才培训. 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <style>
+        /* 机械设计页面专用样式 */
+        .mechanical-hero {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mechanical-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="30" r="0.5" fill="white" opacity="0.15"/></svg>');
+            pointer-events: none;
+        }
+        
+        .mechanical-title {
+            font-size: 3.5rem !important;
+            font-weight: 700 !important;
+            color: white !important;
+            margin-bottom: 1.5rem !important;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .gear-animation {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .gear {
+            position: absolute;
+            font-size: 3rem;
+            animation: rotate 4s linear infinite;
+        }
+        
+        .gear-1 {
+            top: 20px;
+            left: 50px;
+            animation-duration: 4s;
+        }
+        
+        .gear-2 {
+            top: 80px;
+            left: 100px;
+            animation-duration: 3s;
+            animation-direction: reverse;
+        }
+        
+        .gear-3 {
+            top: 40px;
+            left: 130px;
+            animation-duration: 5s;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 设计原则样式 */
+        .principle-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .principle-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: #f8f9ff;
+            border-radius: 8px;
+        }
+        
+        .principle-item i {
+            color: #667eea;
+        }
+        
+        /* 航天特点样式 */
+        .aerospace-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .feature-card {
+            background: #f8f9ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        /* 设计流程样式 */
+        .design-process {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9ff;
+            border-radius: 12px;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        /* 软件卡片样式 */
+        .software-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .software-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .software-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .software-card.featured {
+            border: 2px solid #ff9a9e;
+            position: relative;
+        }
+        
+        .software-card.featured::before {
+            content: '推荐';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .software-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .software-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .software-features {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .software-btn {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .software-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+            color: white;
+        }
+        
+        /* 材料卡片样式 */
+        .materials-grid {
+            margin-top: 2rem;
+        }
+        
+        .material-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .material-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .material-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .density {
+            background: #f8f9ff;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .material-properties {
+            margin: 1.5rem 0;
+        }
+        
+        .property {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .prop-name {
+            min-width: 60px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .prop-bar {
+            flex: 1;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .prop-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff9a9e, #fecfef);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        /* 分析类型样式 */
+        .analysis-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .analysis-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .analysis-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .analysis-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .analysis-formula {
+            background: #f8f9ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .analysis-applications {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .app-tag {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* 工作流程样式 */
+        .workflow-chain {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .workflow-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            transition: transform 0.3s ease;
+        }
+        
+        .workflow-step:hover {
+            transform: translateY(-5px);
+        }
+        
+        .workflow-step .step-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .workflow-arrow {
+            font-size: 2rem;
+            color: #ff9a9e;
+            font-weight: bold;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .mechanical-title {
+                font-size: 2.5rem !important;
+            }
+            
+            .aerospace-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .principle-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .workflow-chain {
+                flex-direction: column;
+            }
+            
+            .workflow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</body>
+</html>

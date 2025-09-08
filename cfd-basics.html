@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFD 计算流体动力学入门 - 冕巢航天人才培训</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-wind"></i> CFD 计算流体动力学</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">返回主页</a></li>
+                <li><a href="#basics">基础知识</a></li>
+                <li><a href="#software">软件工具</a></li>
+                <li><a href="#applications">工程应用</a></li>
+                <li><a href="#resources">学习资源</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero cfd-hero">
+            <div class="hero-content">
+                <h1 class="cfd-title">CFD 计算流体动力学</h1>
+                <p class="hero-subtitle">掌握流体运动规律，解析航天器空气动力学特性</p>
+                <a href="#basics" class="cta-button-large">开始学习</a>
+            </div>
+            <div class="hero-decoration">
+                <div class="fluid-animation">
+                    <div class="flow-particle"></div>
+                    <div class="flow-particle"></div>
+                    <div class="flow-particle"></div>
+                    <i class="fas fa-wind"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="basics" class="section">
+            <div class="container">
+                <h2><i class="fas fa-book-open"></i> 基础知识</h2>
+                <div class="section-grid">
+                    <div class="content-card">
+                        <h3>什么是CFD？</h3>
+                        <p>计算流体动力学（Computational Fluid Dynamics，CFD）是通过数值方法求解流体力学控制方程，分析流体流动和传热传质现象的学科。</p>
+                        <div class="math-example">
+                            <h4>连续性方程：</h4>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">∂ρ/∂t + ∇·(ρv) = 0</p>
+                        </div>
+                        <div class="math-example">
+                            <h4>动量方程（纳维-斯托克斯方程）：</h4>
+                            <p style="text-align: center; font-size: 1.1rem; margin: 1rem 0;">ρ(∂v/∂t + v·∇v) = -∇p + μ∇²v + f</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>推荐教材</h3>
+                        <div class="knowledge-books">
+                            <div class="book-item">
+                                <h4>📚 《流体力学》</h4>
+                                <p>流体力学基础理论必读教材</p>
+                            </div>
+                            <div class="book-item">
+                                <h4>📚 《高等流体力学》</h4>
+                                <p>深入理解流体运动规律和数学描述</p>
+                            </div>
+                            <div class="book-item">
+                                <h4>📚 安德森《空气动力学基础》</h4>
+                                <p>航空航天领域空气动力学经典教材</p>
+                            </div>
+                            <div class="book-item">
+                                <h4>📚 安德森《现代可压缩流体力学》</h4>
+                                <p>可压缩流动理论与应用</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>核心概念</h3>
+                        <div class="concept-list">
+                            <div class="concept-item">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <div>
+                                    <h4>雷诺数</h4>
+                                    <p>Re = ρvL/μ，判断流动状态的无量纲数</p>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <h4>马赫数</h4>
+                                    <p>M = v/c，表示流体速度与声速的比值</p>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <i class="fas fa-water"></i>
+                                <div>
+                                    <h4>湍流模型</h4>
+                                    <p>k-ε、k-ω、LES等湍流数值模拟方法</p>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <i class="fas fa-th"></i>
+                                <div>
+                                    <h4>网格生成</h4>
+                                    <p>结构化、非结构化网格划分技术</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="software" class="section">
+            <div class="container">
+                <h2><i class="fas fa-desktop"></i> 软件工具</h2>
+                <div class="software-workflow">
+                    <h3>CFD工作流程</h3>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-pencil-ruler"></i>
+                            </div>
+                            <h4>前处理</h4>
+                            <p><strong>Point Wise</strong></p>
+                            <p>专业网格生成软件，支持复杂几何体网格划分</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h4>求解计算</h4>
+                            <p><strong>ANSYS Fluent</strong></p>
+                            <p>工业标准CFD求解器，支持多种物理模型</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>后处理</h4>
+                            <p><strong>Tecplot / Ensight</strong></p>
+                            <p>专业可视化分析软件，生成高质量图表</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="software-downloads">
+                    <h3>软件下载</h3>
+                    <div class="download-grid">
+                        <div class="download-card">
+                            <div class="software-icon">💻</div>
+                            <h4>Point Wise</h4>
+                            <p>前处理网格生成软件</p>
+                            <a href="#" class="download-btn">下载</a>
+                        </div>
+                        <div class="download-card">
+                            <div class="software-icon">⚙️</div>
+                            <h4>ANSYS Fluent</h4>
+                            <p>运算求解CFD软件</p>
+                            <a href="#" class="download-btn">下载</a>
+                        </div>
+                        <div class="download-card">
+                            <div class="software-icon">📊</div>
+                            <h4>Tecplot</h4>
+                            <p>后处理可视化工具</p>
+                            <a href="#" class="download-btn">下载</a>
+                        </div>
+                        <div class="download-card">
+                            <div class="software-icon">🎯</div>
+                            <h4>Ensight</h4>
+                            <p>后处理可视化工具</p>
+                            <a href="#" class="download-btn">下载</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications" class="section">
+            <div class="container">
+                <h2><i class="fas fa-rocket"></i> 工程应用</h2>
+                <div class="application-grid">
+                    <div class="app-card">
+                        <div class="app-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3>外流分析</h3>
+                        <p>飞行器外形设计、阻力计算、升力优化</p>
+                        <ul>
+                            <li>翼型设计优化</li>
+                            <li>整机气动布局</li>
+                            <li>阻力减小技术</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="app-card">
+                        <div class="app-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>内流分析</h3>
+                        <p>发动机内部流动、喷管设计、燃烧分析</p>
+                        <ul>
+                            <li>燃烧室流场分析</li>
+                            <li>喷管性能优化</li>
+                            <li>冷却通道设计</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="app-card">
+                        <div class="app-icon">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <h3>传热分析</h3>
+                        <p>热防护系统、散热设计、温度分布</p>
+                        <ul>
+                            <li>热防护材料选择</li>
+                            <li>散热器设计</li>
+                            <li>热应力分析</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="section">
+            <div class="container">
+                <h2><i class="fas fa-tools"></i> 学习资源</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>软件入门</h3>
+                        <div class="resource-list">
+                            <div class="resource-item">
+                                <i class="fas fa-book"></i>
+                                <div>
+                                    <h4>ANSYS教学手册</h4>
+                                    <p>按照ANSYS教学手册范例进行学习</p>
+                                </div>
+                            </div>
+                            <div class="resource-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <h4>《计算流体力学》</h4>
+                                    <p>书籍可借阅《计算流体力学》</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>辅助工具</h3>
+                        <div class="auxiliary-tools">
+                            <div class="tool-item">
+                                <div class="tool-icon">🔬</div>
+                                <div>
+                                    <h4>REFPROP</h4>
+                                    <p>REFPROP可提供专业的流体物性查询</p>
+                                    <div class="tool-features">
+                                        <span class="feature-tag">物性查询</span>
+                                        <span class="feature-tag">热力学数据</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tool-item">
+                                <div class="tool-icon">🚀</div>
+                                <div>
+                                    <h4>NASA CEA</h4>
+                                    <p>NASA CEA（Chemical Equilibrium with Applications）可提供专业的燃烧效率预测</p>
+                                    <div class="tool-features">
+                                        <span class="feature-tag">化学平衡</span>
+                                        <span class="feature-tag">燃烧分析</span>
+                                    </div>
+                                    <a href="https://www.kechuang.org/t/87455" target="_blank" class="tool-link">
+                                        <i class="fas fa-external-link-alt"></i> 学习资源
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>在线计算器</h3>
+                        <div class="calculator-tools">
+                            <div class="calc-item">
+                                <h4>雷诺数计算器</h4>
+                                <p>Re = ρvL/μ</p>
+                                <button class="calc-btn" onclick="openCalculator('reynolds')">使用工具</button>
+                            </div>
+                            <div class="calc-item">
+                                <h4>马赫数计算器</h4>
+                                <p>M = v/c</p>
+                                <button class="calc-btn" onclick="openCalculator('mach')">使用工具</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CFD 计算流体动力学</h3>
+                    <p>专业的CFD技术培训平台</p>
+                </div>
+                <div class="footer-section">
+                    <h4>学习模块</h4>
+                    <ul>
+                        <li><a href="#basics">基础知识</a></li>
+                        <li><a href="#software">软件工具</a></li>
+                        <li><a href="#applications">工程应用</a></li>
+                        <li><a href="#resources">学习资源</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>相关链接</h4>
+                    <ul>
+                        <li><a href="index.html">返回主页</a></li>
+                        <li><a href="talent.html">人才培养</a></li>
+                        <li><a href="embedded-basics.html">嵌入式系统</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 冕巢航天人才培训. 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // CFD页面特定功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加简单的计算器功能
+            window.openCalculator = function(type) {
+                if (type === 'reynolds') {
+                    const density = prompt('请输入密度 ρ (kg/m³):');
+                    const velocity = prompt('请输入速度 v (m/s):');
+                    const length = prompt('请输入特征长度 L (m):');
+                    const viscosity = prompt('请输入动力粘度 μ (Pa·s):');
+                    
+                    if (density && velocity && length && viscosity) {
+                        const re = (parseFloat(density) * parseFloat(velocity) * parseFloat(length)) / parseFloat(viscosity);
+                        const flowType = re < 2300 ? '层流' : re > 4000 ? '湍流' : '过渡流';
+                        alert(`雷诺数 Re = ${re.toExponential(3)}\n流动类型: ${flowType}`);
+                    }
+                } else if (type === 'mach') {
+                    const velocity = prompt('请输入速度 v (m/s):');
+                    const temperature = prompt('请输入温度 T (K):');
+                    const gamma = prompt('请输入比热比 γ (默认1.4):') || '1.4';
+                    const gasConstant = prompt('请输入气体常数 R (J/(kg·K)) (默认287):') || '287';
+                    
+                    if (velocity && temperature) {
+                        const soundSpeed = Math.sqrt(parseFloat(gamma) * parseFloat(gasConstant) * parseFloat(temperature));
+                        const mach = parseFloat(velocity) / soundSpeed;
+                        const regime = mach < 0.8 ? '亚音速' : mach < 1.2 ? '跨音速' : mach < 5 ? '超音速' : '高超音速';
+                        alert(`声速 c = ${soundSpeed.toFixed(2)} m/s\n马赫数 M = ${mach.toFixed(3)}\n流动区域: ${regime}`);
+                    }
+                }
+            };
+        });
+    </script>
+    
+    <style>
+        /* CFD页面专用样式优化 */
+        .cfd-hero {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cfd-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="30" r="0.5" fill="white" opacity="0.15"/><circle cx="40" cy="70" r="1.5" fill="white" opacity="0.08"/></svg>');
+            pointer-events: none;
+        }
+        
+        .cfd-title {
+            font-size: 3.5rem !important;
+            font-weight: 700 !important;
+            color: white !important;
+            margin-bottom: 1.5rem !important;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        
+        .cta-button-large {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white !important;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(238, 90, 36, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button-large:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(238, 90, 36, 0.6);
+            color: white !important;
+        }
+        
+        .hero-decoration {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            opacity: 0.2;
+        }
+        
+        .fluid-animation {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .fluid-animation i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.3);
+            animation: windFlow 3s ease-in-out infinite;
+        }
+        
+        .flow-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 50%;
+            animation: flowParticle 4s linear infinite;
+        }
+        
+        .flow-particle:nth-child(1) {
+            top: 30%;
+            animation-delay: 0s;
+        }
+        
+        .flow-particle:nth-child(2) {
+            top: 50%;
+            animation-delay: 1.3s;
+        }
+        
+        .flow-particle:nth-child(3) {
+            top: 70%;
+            animation-delay: 2.6s;
+        }
+        
+        @keyframes windFlow {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+        
+        @keyframes flowParticle {
+            0% { left: -10px; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { left: 210px; opacity: 0; }
+        }
+        
+        /* CFD页面特定样式 */
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .workflow-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            transition: transform 0.3s ease;
+        }
+        
+        .workflow-step:hover {
+            transform: translateY(-5px);
+        }
+        
+        .workflow-arrow {
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .download-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .software-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .concept-list {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .concept-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9ff;
+            border-radius: 8px;
+        }
+        
+        .concept-item i {
+            color: #667eea;
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+        
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .app-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .app-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-tools {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .calc-item {
+            padding: 1rem;
+            background: #f8f9ff;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .calc-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .calc-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .tool-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9ff;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-icon {
+            font-size: 2rem;
+            min-width: 50px;
+        }
+        
+        .tool-features {
+            margin: 0.5rem 0;
+        }
+        
+        .feature-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 0.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .workflow-steps {
+                flex-direction: column;
+            }
+            
+            .workflow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</body>
+</html>
