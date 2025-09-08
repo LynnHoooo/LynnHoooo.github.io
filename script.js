@@ -1323,4 +1323,302 @@ function handleImageError(element) {
         `;
         loadingElement.style.background = 'rgba(255, 0, 0, 0.8)';
     }
-} 
+}
+
+// 人才培养功能模块
+class TalentTrainingModule {
+    constructor() {
+        this.initCalculators();
+        this.initInteractiveFeatures();
+    }
+    
+    initCalculators() {
+        // 雷诺数计算器
+        this.createReynoldsCalculator();
+        // 马赫数计算器
+        this.createMachCalculator();
+        // 应力计算器
+        this.createStressCalculators();
+    }
+    
+    createReynoldsCalculator() {
+        // 检查是否存在计算器按钮
+        const reynoldsBtn = document.querySelector('.tool-item:nth-child(1) .tool-btn');
+        if (reynoldsBtn) {
+            reynoldsBtn.addEventListener('click', () => {
+                this.showCalculatorModal('雷诺数计算器', `
+                    <div class="calculator-form">
+                        <div class="input-group">
+                            <label>密度 ρ (kg/m³):</label>
+                            <input type="number" id="density" placeholder="例如: 1.225" step="0.001">
+                        </div>
+                        <div class="input-group">
+                            <label>速度 v (m/s):</label>
+                            <input type="number" id="velocity" placeholder="例如: 10" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label>特征长度 L (m):</label>
+                            <input type="number" id="length" placeholder="例如: 1" step="0.01">
+                        </div>
+                        <div class="input-group">
+                            <label>动力粘度 μ (Pa·s):</label>
+                            <input type="number" id="viscosity" placeholder="例如: 1.81e-5" step="1e-6">
+                        </div>
+                        <button onclick="talentModule.calculateReynolds()" class="calc-btn">计算</button>
+                        <div id="reynolds-result" class="result"></div>
+                    </div>
+                `);
+            });
+        }
+    }
+    
+    calculateReynolds() {
+        const density = parseFloat(document.getElementById('density').value);
+        const velocity = parseFloat(document.getElementById('velocity').value);
+        const length = parseFloat(document.getElementById('length').value);
+        const viscosity = parseFloat(document.getElementById('viscosity').value);
+        
+        if (density && velocity && length && viscosity) {
+            const reynolds = (density * velocity * length) / viscosity;
+            document.getElementById('reynolds-result').innerHTML = `
+                <h4>计算结果:</h4>
+                <p>雷诺数 Re = ${reynolds.toExponential(3)}</p>
+                <p class="flow-type">流动类型: ${reynolds < 2300 ? '层流' : reynolds > 4000 ? '湍流' : '过渡流'}</p>
+            `;
+        } else {
+            alert('请填写所有参数！');
+        }
+    }
+    
+    createMachCalculator() {
+        const machBtn = document.querySelector('.tool-item:nth-child(2) .tool-btn');
+        if (machBtn) {
+            machBtn.addEventListener('click', () => {
+                this.showCalculatorModal('马赫数计算器', `
+                    <div class="calculator-form">
+                        <div class="input-group">
+                            <label>速度 v (m/s):</label>
+                            <input type="number" id="mach-velocity" placeholder="例如: 340" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label>比热比 γ:</label>
+                            <input type="number" id="gamma" placeholder="例如: 1.4" step="0.01" value="1.4">
+                        </div>
+                        <div class="input-group">
+                            <label>气体常数 R (J/(kg·K)):</label>
+                            <input type="number" id="gas-constant" placeholder="例如: 287" step="1" value="287">
+                        </div>
+                        <div class="input-group">
+                            <label>温度 T (K):</label>
+                            <input type="number" id="temperature" placeholder="例如: 288" step="0.1">
+                        </div>
+                        <button onclick="talentModule.calculateMach()" class="calc-btn">计算</button>
+                        <div id="mach-result" class="result"></div>
+                    </div>
+                `);
+            });
+        }
+    }
+    
+    calculateMach() {
+        const velocity = parseFloat(document.getElementById('mach-velocity').value);
+        const gamma = parseFloat(document.getElementById('gamma').value);
+        const gasConstant = parseFloat(document.getElementById('gas-constant').value);
+        const temperature = parseFloat(document.getElementById('temperature').value);
+        
+        if (velocity && gamma && gasConstant && temperature) {
+            const soundSpeed = Math.sqrt(gamma * gasConstant * temperature);
+            const mach = velocity / soundSpeed;
+            document.getElementById('mach-result').innerHTML = `
+                <h4>计算结果:</h4>
+                <p>声速 c = ${soundSpeed.toFixed(2)} m/s</p>
+                <p>马赫数 M = ${mach.toFixed(3)}</p>
+                <p class="flow-regime">流动区域: ${mach < 0.8 ? '亚音速' : mach < 1.2 ? '跨音速' : mach < 5 ? '超音速' : '高超音速'}</p>
+            `;
+        } else {
+            alert('请填写所有参数！');
+        }
+    }
+    
+    createStressCalculators() {
+        const stressBtns = document.querySelectorAll('#mechanical .tool-btn');
+        if (stressBtns.length > 0) {
+            // 弯曲应力计算器
+            stressBtns[0].addEventListener('click', () => {
+                this.showCalculatorModal('梁弯曲应力计算器', `
+                    <div class="calculator-form">
+                        <div class="input-group">
+                            <label>弯矩 M (N·m):</label>
+                            <input type="number" id="moment" placeholder="例如: 1000" step="1">
+                        </div>
+                        <div class="input-group">
+                            <label>距中性轴距离 y (m):</label>
+                            <input type="number" id="distance" placeholder="例如: 0.05" step="0.001">
+                        </div>
+                        <div class="input-group">
+                            <label>惯性矩 I (m⁴):</label>
+                            <input type="number" id="inertia" placeholder="例如: 8.33e-6" step="1e-8">
+                        </div>
+                        <button onclick="talentModule.calculateBendingStress()" class="calc-btn">计算</button>
+                        <div id="bending-result" class="result"></div>
+                    </div>
+                `);
+            });
+        }
+        
+        if (stressBtns.length > 1) {
+            // 扭转应力计算器
+            stressBtns[1].addEventListener('click', () => {
+                this.showCalculatorModal('扭转应力计算器', `
+                    <div class="calculator-form">
+                        <div class="input-group">
+                            <label>扭矩 T (N·m):</label>
+                            <input type="number" id="torque" placeholder="例如: 500" step="1">
+                        </div>
+                        <div class="input-group">
+                            <label>半径 r (m):</label>
+                            <input type="number" id="radius" placeholder="例如: 0.025" step="0.001">
+                        </div>
+                        <div class="input-group">
+                            <label>极惯性矩 J (m⁴):</label>
+                            <input type="number" id="polar-inertia" placeholder="例如: 1.23e-5" step="1e-8">
+                        </div>
+                        <button onclick="talentModule.calculateTorsionalStress()" class="calc-btn">计算</button>
+                        <div id="torsion-result" class="result"></div>
+                    </div>
+                `);
+            });
+        }
+    }
+    
+    calculateBendingStress() {
+        const moment = parseFloat(document.getElementById('moment').value);
+        const distance = parseFloat(document.getElementById('distance').value);
+        const inertia = parseFloat(document.getElementById('inertia').value);
+        
+        if (moment && distance && inertia) {
+            const stress = (moment * distance) / inertia;
+            document.getElementById('bending-result').innerHTML = `
+                <h4>计算结果:</h4>
+                <p>弯曲应力 σ = ${stress.toExponential(3)} Pa</p>
+                <p>弯曲应力 σ = ${(stress / 1e6).toFixed(2)} MPa</p>
+            `;
+        } else {
+            alert('请填写所有参数！');
+        }
+    }
+    
+    calculateTorsionalStress() {
+        const torque = parseFloat(document.getElementById('torque').value);
+        const radius = parseFloat(document.getElementById('radius').value);
+        const polarInertia = parseFloat(document.getElementById('polar-inertia').value);
+        
+        if (torque && radius && polarInertia) {
+            const stress = (torque * radius) / polarInertia;
+            document.getElementById('torsion-result').innerHTML = `
+                <h4>计算结果:</h4>
+                <p>扭转应力 τ = ${stress.toExponential(3)} Pa</p>
+                <p>扭转应力 τ = ${(stress / 1e6).toFixed(2)} MPa</p>
+            `;
+        } else {
+            alert('请填写所有参数！');
+        }
+    }
+    
+    showCalculatorModal(title, content) {
+        // 创建模态框
+        const modal = document.createElement('div');
+        modal.className = 'calculator-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>${title}</h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    ${content}
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // 关闭模态框事件
+        modal.querySelector('.close-modal').addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                document.body.removeChild(modal);
+            }
+        });
+    }
+    
+    initInteractiveFeatures() {
+        // 返回顶部按钮
+        this.createBackToTop();
+        // 人才培养卡片动画
+        this.initTalentCardAnimations();
+    }
+    
+    createBackToTop() {
+        const backToTop = document.createElement('button');
+        backToTop.className = 'back-to-top';
+        backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backToTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        document.body.appendChild(backToTop);
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+    }
+    
+    initTalentCardAnimations() {
+        // 观察器用于滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+        
+        // 观察人才培养相关元素
+        document.querySelectorAll('.talent-card, .knowledge-card').forEach(el => {
+            observer.observe(el);
+        });
+    }
+}
+
+// 初始化人才培养模块
+let talentModule;
+document.addEventListener('DOMContentLoaded', function() {
+    talentModule = new TalentTrainingModule();
+});
+
+// 滚动到指定部分的函数
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// 全局暴露函数
+window.scrollToSection = scrollToSection;
+
+console.log('冕巢航天人才培养功能已加载完成！'); 
